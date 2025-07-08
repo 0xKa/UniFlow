@@ -1,0 +1,8 @@
+@UniFlow.API_HostAddress = http://localhost:5116
+
+GET {{UniFlow.API_HostAddress}}/api/people
+Accept: application/json
+
+##
+
+###
