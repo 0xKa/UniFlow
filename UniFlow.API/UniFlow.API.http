@@ -1,8 +1,9 @@
 @UniFlow.API_HostAddress = http://localhost:5116
 
-GET {{UniFlow.API_HostAddress}}/api/people
+### Test Get All People
+GET https://localhost:7000/api/People/All
 Accept: application/json
 
-##
-
-###
+### Test with HTTP (if HTTPS is not configured)
+GET http://localhost:5000/api/People/All
+Accept: application/json
