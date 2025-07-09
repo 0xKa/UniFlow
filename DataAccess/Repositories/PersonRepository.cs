@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using DataAccess.Interfaces;
 using DataAccess.Models;
 
-namespace MyApp.DAL.Repositories;
+namespace DataAccess.Repositories;
 
 public class PersonRepository : IPersonRepository
 {

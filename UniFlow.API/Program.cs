@@ -1,4 +1,18 @@
+using DataAccess.Interfaces;
+using DataAccess.Repositories;
+using BusinessLogic.Interfaces;
+using BusinessLogic.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // from appsettings.json
+
+// Register DAL
+builder.Services.AddScoped<IPersonRepository>(provider => new PersonRepository(connectionString ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+
+// Register BLL
+builder.Services.AddScoped<IPersonService, PersonService>();
+
 
 // Add services to the container.
 builder.Services.AddControllers();
