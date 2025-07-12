@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "..\BusinessLogic\BusinessLogic.csproj", "{7BF18662-8E7F-42FB-95B1-103DE23B2699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniFlow.DTOs", "..\UniFlow.DTOs\UniFlow.DTOs.csproj", "{03047570-13FB-4DA2-AA9D-4CBE4138D2BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniFlow.Shared", "..\UniFlow.Shared\UniFlow.Shared.csproj", "{03047570-13FB-4DA2-AA9D-4CBE4138D2BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

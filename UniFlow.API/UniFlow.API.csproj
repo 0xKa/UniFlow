@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\UniFlow.DTOs\UniFlow.DTOs.csproj" />
+    <ProjectReference Include="..\UniFlow.Shared\UniFlow.Shared.csproj" />
   </ItemGroup>
 
 </Project>
