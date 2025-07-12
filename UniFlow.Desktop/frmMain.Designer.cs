@@ -1,6 +1,6 @@
 ﻿namespace UniFlow.Desktop
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,19 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // Form1
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 84);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(731, 233);
+            dataGridView1.TabIndex = 0;
+            // 
+            // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
-            ClientSize = new Size(763, 394);
-            Name = "Form1";
-            Text = "Form1";
+            ClientSize = new Size(755, 329);
+            Controls.Add(dataGridView1);
+            Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Main Screen";
+            Load += frmMain_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridView1;
     }
 }
