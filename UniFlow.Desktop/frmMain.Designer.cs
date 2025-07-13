@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            pnlSidebar = new Panel();
             SuspendLayout();
             // 
-            // dataGridView1
+            // pnlSidebar
             // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 84);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(731, 233);
-            dataGridView1.TabIndex = 0;
+            pnlSidebar.BackColor = Color.FromArgb(40, 40, 40);
+            pnlSidebar.Dock = DockStyle.Left;
+            pnlSidebar.Location = new Point(0, 0);
+            pnlSidebar.Name = "pnlSidebar";
+            pnlSidebar.Size = new Size(254, 329);
+            pnlSidebar.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -47,17 +46,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(755, 329);
-            Controls.Add(dataGridView1);
+            Controls.Add(pnlSidebar);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main Screen";
             Load += frmMain_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private Panel pnlSidebar;
     }
 }
