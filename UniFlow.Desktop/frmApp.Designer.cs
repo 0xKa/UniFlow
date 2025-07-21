@@ -1,14 +1,14 @@
 ﻿namespace UniFlow.Desktop
 {
-    partial class frmMain
+    partial class frmApp
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,11 +23,15 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApp));
+            titleBar = new ReaLTaiizor.Forms.HopeForm();
+            metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
+            pnlMain = new Panel();
             pnlSidebar = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnDashboard = new Button();
@@ -38,24 +42,77 @@
             button7 = new Button();
             button6 = new Button();
             button5 = new Button();
-            pnlMain = new Panel();
+            titleBar.SuspendLayout();
             pnlSidebar.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
+            // titleBar
+            // 
+            titleBar.ControlBox = false;
+            titleBar.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            titleBar.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            titleBar.ControlBoxColorN = Color.White;
+            titleBar.Controls.Add(metroControlBox1);
+            titleBar.Dock = DockStyle.Top;
+            titleBar.Font = new Font("Segoe UI", 12F);
+            titleBar.ForeColor = Color.FromArgb(242, 246, 252);
+            titleBar.Image = (Image)resources.GetObject("titleBar.Image");
+            titleBar.Location = new Point(0, 0);
+            titleBar.Name = "titleBar";
+            titleBar.Size = new Size(1200, 40);
+            titleBar.TabIndex = 0;
+            titleBar.Text = "hopeForm1";
+            titleBar.ThemeColor = Color.FromArgb(42, 42, 42);
+            // 
+            // metroControlBox1
+            // 
+            metroControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            metroControlBox1.CloseHoverBackColor = Color.FromArgb(183, 40, 40);
+            metroControlBox1.CloseHoverForeColor = Color.White;
+            metroControlBox1.CloseNormalForeColor = Color.Gray;
+            metroControlBox1.DefaultLocation = ReaLTaiizor.Enum.Metro.LocationType.Normal;
+            metroControlBox1.DisabledForeColor = Color.Silver;
+            metroControlBox1.IsDerivedStyle = true;
+            metroControlBox1.Location = new Point(1100, 4);
+            metroControlBox1.MaximizeBox = true;
+            metroControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
+            metroControlBox1.MaximizeHoverForeColor = Color.Gray;
+            metroControlBox1.MaximizeNormalForeColor = Color.Gray;
+            metroControlBox1.MinimizeBox = true;
+            metroControlBox1.MinimizeHoverBackColor = Color.FromArgb(238, 238, 238);
+            metroControlBox1.MinimizeHoverForeColor = Color.Gray;
+            metroControlBox1.MinimizeNormalForeColor = Color.Gray;
+            metroControlBox1.Name = "metroControlBox1";
+            metroControlBox1.Size = new Size(100, 25);
+            metroControlBox1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            metroControlBox1.StyleManager = null;
+            metroControlBox1.TabIndex = 1;
+            metroControlBox1.Text = "metroControlBox1";
+            metroControlBox1.ThemeAuthor = "Taiizor";
+            metroControlBox1.ThemeName = "MetroDark";
+            // 
+            // pnlMain
+            // 
+            pnlMain.BackColor = Color.FromArgb(32, 32, 32);
+            pnlMain.Dock = DockStyle.Right;
+            pnlMain.Location = new Point(260, 40);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(940, 660);
+            pnlMain.TabIndex = 11;
+            // 
             // pnlSidebar
             // 
-            pnlSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            pnlSidebar.BackColor = Color.FromArgb(40, 40, 40);
+            pnlSidebar.BackColor = Color.FromArgb(25, 25, 25);
             pnlSidebar.Controls.Add(tableLayoutPanel1);
-            pnlSidebar.Location = new Point(0, 0);
+            pnlSidebar.Dock = DockStyle.Left;
+            pnlSidebar.Location = new Point(0, 40);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(254, 661);
-            pnlSidebar.TabIndex = 7;
+            pnlSidebar.Size = new Size(254, 660);
+            pnlSidebar.TabIndex = 10;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(btnDashboard, 0, 0);
@@ -66,7 +123,8 @@
             tableLayoutPanel1.Controls.Add(button7, 0, 7);
             tableLayoutPanel1.Controls.Add(button6, 0, 6);
             tableLayoutPanel1.Controls.Add(button5, 0, 5);
-            tableLayoutPanel1.Location = new Point(0, 262);
+            tableLayoutPanel1.Dock = DockStyle.Bottom;
+            tableLayoutPanel1.Location = new Point(0, 181);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
@@ -78,7 +136,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(254, 399);
+            tableLayoutPanel1.Size = new Size(254, 479);
             tableLayoutPanel1.TabIndex = 5;
             // 
             // btnDashboard
@@ -94,7 +152,7 @@
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(3, 3);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(248, 43);
+            btnDashboard.Size = new Size(248, 53);
             btnDashboard.TabIndex = 12;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
@@ -111,9 +169,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(3, 52);
+            button1.Location = new Point(3, 62);
             button1.Name = "button1";
-            button1.Size = new Size(248, 43);
+            button1.Size = new Size(248, 53);
             button1.TabIndex = 11;
             button1.Text = "People";
             button1.UseVisualStyleBackColor = true;
@@ -129,9 +187,9 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(3, 101);
+            button2.Location = new Point(3, 121);
             button2.Name = "button2";
-            button2.Size = new Size(248, 43);
+            button2.Size = new Size(248, 53);
             button2.TabIndex = 10;
             button2.Text = "Users";
             button2.UseVisualStyleBackColor = true;
@@ -147,9 +205,9 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(3, 150);
+            button3.Location = new Point(3, 180);
             button3.Name = "button3";
-            button3.Size = new Size(248, 43);
+            button3.Size = new Size(248, 53);
             button3.TabIndex = 9;
             button3.Text = "Departments";
             button3.UseVisualStyleBackColor = true;
@@ -165,9 +223,9 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(3, 199);
+            button4.Location = new Point(3, 239);
             button4.Name = "button4";
-            button4.Size = new Size(248, 43);
+            button4.Size = new Size(248, 53);
             button4.TabIndex = 8;
             button4.Text = "Students";
             button4.UseVisualStyleBackColor = true;
@@ -183,9 +241,9 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button7.ForeColor = Color.White;
-            button7.Location = new Point(3, 346);
+            button7.Location = new Point(3, 416);
             button7.Name = "button7";
-            button7.Size = new Size(248, 50);
+            button7.Size = new Size(248, 60);
             button7.TabIndex = 7;
             button7.Text = "Settings";
             button7.UseVisualStyleBackColor = true;
@@ -201,9 +259,9 @@
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button6.ForeColor = Color.White;
-            button6.Location = new Point(3, 297);
+            button6.Location = new Point(3, 357);
             button6.Name = "button6";
-            button6.Size = new Size(248, 43);
+            button6.Size = new Size(248, 53);
             button6.TabIndex = 6;
             button6.Text = "...";
             button6.UseVisualStyleBackColor = true;
@@ -219,33 +277,31 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             button5.ForeColor = Color.White;
-            button5.Location = new Point(3, 248);
+            button5.Location = new Point(3, 298);
             button5.Name = "button5";
-            button5.Size = new Size(248, 43);
+            button5.Size = new Size(248, 53);
             button5.TabIndex = 5;
             button5.Text = "...";
             button5.UseVisualStyleBackColor = true;
             // 
-            // pnlMain
+            // frmApp
             // 
-            pnlMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlMain.BackColor = Color.FromArgb(30, 30, 30);
-            pnlMain.Location = new Point(260, 0);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(924, 661);
-            pnlMain.TabIndex = 8;
-            // 
-            // frmMain
-            // 
-            AutoScaleMode = AutoScaleMode.None;
-            BackColor = Color.Black;
-            ClientSize = new Size(1184, 661);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(42, 42, 42);
+            ClientSize = new Size(1200, 700);
+            ControlBox = false;
             Controls.Add(pnlMain);
             Controls.Add(pnlSidebar);
-            Name = "frmMain";
+            Controls.Add(titleBar);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(1366, 768);
+            MinimumSize = new Size(190, 40);
+            Name = "frmApp";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Main Screen";
-            Load += frmMain_Load;
+            Text = "dungeonForm1";
+            titleBar.ResumeLayout(false);
             pnlSidebar.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -253,16 +309,18 @@
 
         #endregion
 
+        private ReaLTaiizor.Forms.HopeForm titleBar;
+        private Panel pnlMain;
         private Panel pnlSidebar;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button7;
-        private Button button6;
-        private Button button5;
         private Button btnDashboard;
         private Button button1;
         private Button button2;
         private Button button3;
         private Button button4;
-        private Panel pnlMain;
+        private Button button7;
+        private Button button6;
+        private Button button5;
+        private ReaLTaiizor.Controls.MetroControlBox metroControlBox1;
     }
 }
