@@ -27,11 +27,8 @@ namespace UniFlow.Desktop
             pnlMain.Tag = frm;
             frm.Show();
         }
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            _LoadForm(new frmDashboard());
+        private void btnDashboard_Click(object sender, EventArgs e) => _LoadForm(new frmDashboard());
 
-        }
-
+        private void btnPeople_Click(object sender, EventArgs e) => _LoadForm(new frmPeopleManagement());
     }
 }

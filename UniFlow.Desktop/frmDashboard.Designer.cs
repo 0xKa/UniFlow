@@ -53,7 +53,7 @@
             hopeButton1.Font = new Font("Segoe UI", 12F);
             hopeButton1.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeButton1.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton1.Location = new Point(0, 0);
+            hopeButton1.Location = new Point(334, 211);
             hopeButton1.Name = "hopeButton1";
             hopeButton1.PrimaryColor = Color.FromArgb(64, 158, 255);
             hopeButton1.Size = new Size(120, 40);
@@ -67,7 +67,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(32, 41, 50);
+            BackColor = Color.FromArgb(25, 25, 25);
             ClientSize = new Size(800, 450);
             Controls.Add(hopeButton1);
             Controls.Add(aloneButton1);

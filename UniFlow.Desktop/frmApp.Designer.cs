@@ -35,7 +35,7 @@
             pnlSidebar = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnDashboard = new Button();
-            button1 = new Button();
+            btnPeople = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -116,7 +116,7 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(btnDashboard, 0, 0);
-            tableLayoutPanel1.Controls.Add(button1, 0, 1);
+            tableLayoutPanel1.Controls.Add(btnPeople, 0, 1);
             tableLayoutPanel1.Controls.Add(button2, 0, 2);
             tableLayoutPanel1.Controls.Add(button3, 0, 3);
             tableLayoutPanel1.Controls.Add(button4, 0, 4);
@@ -158,23 +158,24 @@
             btnDashboard.UseVisualStyleBackColor = true;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // button1
+            // btnPeople
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.FlatAppearance.BorderColor = SystemColors.MenuText;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.CheckedBackColor = Color.Black;
-            button1.FlatAppearance.MouseDownBackColor = Color.Black;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 70, 70);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(3, 62);
-            button1.Name = "button1";
-            button1.Size = new Size(248, 53);
-            button1.TabIndex = 11;
-            button1.Text = "People";
-            button1.UseVisualStyleBackColor = true;
+            btnPeople.Dock = DockStyle.Fill;
+            btnPeople.FlatAppearance.BorderColor = SystemColors.MenuText;
+            btnPeople.FlatAppearance.BorderSize = 0;
+            btnPeople.FlatAppearance.CheckedBackColor = Color.Black;
+            btnPeople.FlatAppearance.MouseDownBackColor = Color.Black;
+            btnPeople.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 70, 70);
+            btnPeople.FlatStyle = FlatStyle.Flat;
+            btnPeople.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            btnPeople.ForeColor = Color.White;
+            btnPeople.Location = new Point(3, 62);
+            btnPeople.Name = "btnPeople";
+            btnPeople.Size = new Size(248, 53);
+            btnPeople.TabIndex = 11;
+            btnPeople.Text = "People";
+            btnPeople.UseVisualStyleBackColor = true;
+            btnPeople.Click += btnPeople_Click;
             // 
             // button2
             // 
@@ -314,7 +315,7 @@
         private Panel pnlSidebar;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnDashboard;
-        private Button button1;
+        private Button btnPeople;
         private Button button2;
         private Button button3;
         private Button button4;
