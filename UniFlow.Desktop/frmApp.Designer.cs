@@ -33,6 +33,7 @@
             metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
             pnlMain = new Panel();
             pnlSidebar = new Panel();
+            pbMainIcon = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnDashboard = new Button();
             btnPeople = new Button();
@@ -44,6 +45,7 @@
             button5 = new Button();
             titleBar.SuspendLayout();
             pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbMainIcon).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,12 +59,12 @@
             titleBar.Dock = DockStyle.Top;
             titleBar.Font = new Font("Segoe UI", 12F);
             titleBar.ForeColor = Color.FromArgb(242, 246, 252);
-            titleBar.Image = (Image)resources.GetObject("titleBar.Image");
+            titleBar.Image = Properties.Resources.uniflow_icon;
             titleBar.Location = new Point(0, 0);
             titleBar.Name = "titleBar";
             titleBar.Size = new Size(1200, 40);
             titleBar.TabIndex = 0;
-            titleBar.Text = "hopeForm1";
+            titleBar.Text = "UniFlow";
             titleBar.ThemeColor = Color.FromArgb(42, 42, 42);
             // 
             // metroControlBox1
@@ -74,8 +76,8 @@
             metroControlBox1.DefaultLocation = ReaLTaiizor.Enum.Metro.LocationType.Normal;
             metroControlBox1.DisabledForeColor = Color.Silver;
             metroControlBox1.IsDerivedStyle = true;
-            metroControlBox1.Location = new Point(1100, 4);
-            metroControlBox1.MaximizeBox = true;
+            metroControlBox1.Location = new Point(1097, 3);
+            metroControlBox1.MaximizeBox = false;
             metroControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
             metroControlBox1.MaximizeHoverForeColor = Color.Gray;
             metroControlBox1.MaximizeNormalForeColor = Color.Gray;
@@ -87,15 +89,15 @@
             metroControlBox1.Size = new Size(100, 25);
             metroControlBox1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             metroControlBox1.StyleManager = null;
-            metroControlBox1.TabIndex = 1;
+            metroControlBox1.TabIndex = 0;
             metroControlBox1.Text = "metroControlBox1";
             metroControlBox1.ThemeAuthor = "Taiizor";
             metroControlBox1.ThemeName = "MetroDark";
             // 
             // pnlMain
             // 
+            pnlMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlMain.BackColor = Color.FromArgb(32, 32, 32);
-            pnlMain.Dock = DockStyle.Right;
             pnlMain.Location = new Point(260, 40);
             pnlMain.Name = "pnlMain";
             pnlMain.Size = new Size(940, 660);
@@ -104,12 +106,23 @@
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(25, 25, 25);
+            pnlSidebar.Controls.Add(pbMainIcon);
             pnlSidebar.Controls.Add(tableLayoutPanel1);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 40);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(254, 660);
             pnlSidebar.TabIndex = 10;
+            // 
+            // pbMainIcon
+            // 
+            pbMainIcon.Image = Properties.Resources.dashboard;
+            pbMainIcon.Location = new Point(41, 15);
+            pbMainIcon.Name = "pbMainIcon";
+            pbMainIcon.Size = new Size(173, 151);
+            pbMainIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            pbMainIcon.TabIndex = 6;
+            pbMainIcon.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -296,14 +309,16 @@
             Controls.Add(pnlSidebar);
             Controls.Add(titleBar);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1366, 768);
             MinimumSize = new Size(190, 40);
             Name = "frmApp";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "dungeonForm1";
+            Text = "app";
             titleBar.ResumeLayout(false);
             pnlSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbMainIcon).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -323,5 +338,6 @@
         private Button button6;
         private Button button5;
         private ReaLTaiizor.Controls.MetroControlBox metroControlBox1;
+        private PictureBox pbMainIcon;
     }
 }

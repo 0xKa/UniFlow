@@ -12,14 +12,26 @@ public class PersonApi
     {
         _http = new HttpClient
         {
-            BaseAddress = new Uri("https://localhost:7290/")
+            BaseAddress = new Uri("https://localhost:7290/"),
+            Timeout = TimeSpan.FromSeconds(5) 
+
         };
 
 
     }
 
     public async Task<List<PersonDTO>> GetAllAsync()
-        => await _http.GetFromJsonAsync<List<PersonDTO>>("api/People") ?? new List<PersonDTO>();
+    {
+        try
+        {
+            return await _http.GetFromJsonAsync<List<PersonDTO>>("api/People") ?? new List<PersonDTO>();
+
+        }
+        catch 
+        {
+            return new List<PersonDTO>();
+        }
+    }
 
     public async Task<PersonDTO?> GetByIdAsync(int id)
             => await _http.GetFromJsonAsync<PersonDTO>($"api/People/{id}");

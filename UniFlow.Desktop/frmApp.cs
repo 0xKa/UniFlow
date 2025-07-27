@@ -16,8 +16,9 @@ namespace UniFlow.Desktop
         {
             InitializeComponent();
         }
-        private void _LoadForm(Form frm)
+        private void _LoadForm(Form frm, Bitmap mainImage)
         {
+            pbMainIcon.Image = mainImage;
             pnlMain.Controls.Clear();
 
             frm.TopLevel = false;
@@ -25,10 +26,14 @@ namespace UniFlow.Desktop
 
             pnlMain.Controls.Add(frm);
             pnlMain.Tag = frm;
+
             frm.Show();
         }
-        private void btnDashboard_Click(object sender, EventArgs e) => _LoadForm(new frmDashboard());
 
-        private void btnPeople_Click(object sender, EventArgs e) => _LoadForm(new frmPeopleManagement());
+        private void btnDashboard_Click(object sender, EventArgs e) 
+            => _LoadForm(new frmDashboard(), Properties.Resources.dashboard);
+        private void btnPeople_Click(object sender, EventArgs e) 
+            => _LoadForm(new frmPeopleManagement(), Properties.Resources.people);
+    
     }
 }
