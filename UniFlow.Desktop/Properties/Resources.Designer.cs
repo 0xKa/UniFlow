@@ -81,11 +81,31 @@ namespace UniFlow.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] uniflow_app_icon {
+            get {
+                object obj = ResourceManager.GetObject("uniflow-app-icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap uniflow_icon {
+        public static System.Drawing.Bitmap uniflow_app_icon_png {
             get {
-                object obj = ResourceManager.GetObject("uniflow-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("uniflow-app-icon-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap uniflow_icon_1 {
+            get {
+                object obj = ResourceManager.GetObject("uniflow-icon-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

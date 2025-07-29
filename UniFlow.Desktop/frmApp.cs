@@ -18,7 +18,10 @@ namespace UniFlow.Desktop
         }
         private void _LoadForm(Form frm, Bitmap mainImage)
         {
+
             pbMainIcon.Image = mainImage;
+            pbMainIcon.Refresh(); // Force immediate repaint to ensure the image is displayed early
+
             pnlMain.Controls.Clear();
 
             frm.TopLevel = false;

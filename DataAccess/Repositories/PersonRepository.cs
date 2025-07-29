@@ -14,6 +14,22 @@ public class PersonRepository : IPersonRepository
         _connectionString = connectionString;
     }
 
+    private Person ReadPerson(SqlDataReader reader)
+    {
+        return new Person
+        {
+            ID = Convert.ToInt32(reader["person_id"]),
+            FirstName = reader["first_name"].ToString()!,
+            LastName = reader["last_name"].ToString()!,
+            DateOfBirth = Convert.ToDateTime(reader["date_of_birth"]),
+            Gender = Convert.ToChar(reader["gender"]),
+            Phone = reader["phone"].ToString()!,
+            Address = reader["address"] == DBNull.Value ? null : reader["address"].ToString(),
+            NationalID = reader["national_id"].ToString()!,
+            ImagePath = reader["image_path"] == DBNull.Value ? null : reader["image_path"].ToString()
+        };
+    }
+
     public List<Person> GetAll()
     {
         var people = new List<Person>();
@@ -114,19 +130,34 @@ public class PersonRepository : IPersonRepository
         return cmd.ExecuteNonQuery() > 0;
     }
 
-    private Person ReadPerson(SqlDataReader reader)
+    private PersonView ReadPersonView(SqlDataReader reader)
     {
-        return new Person
+        return new PersonView
         {
-            ID = Convert.ToInt32(reader["person_id"]),
-            FirstName = reader["first_name"].ToString()!,
-            LastName = reader["last_name"].ToString()!,
-            DateOfBirth = Convert.ToDateTime(reader["date_of_birth"]),
-            Gender = Convert.ToChar(reader["gender"]),
-            Phone = reader["phone"].ToString()!,
-            Address = reader["address"] == DBNull.Value ? null : reader["address"].ToString(),
-            NationalID = reader["national_id"].ToString()!,
-            ImagePath = reader["image_path"] == DBNull.Value ? null : reader["image_path"].ToString()
+            PersonID = Convert.ToInt32(reader["PersonID"]),
+            NationalID = reader["NationalID"].ToString()!,
+            FullName = reader["FullName"].ToString()!,
+            DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+            Age = Convert.ToInt32(reader["Age"]),
+            Gender = reader["Gender"].ToString()!,
+            Phone = reader["Phone"].ToString()!
         };
     }
+    public List<PersonView> GetAllFromView()
+    {
+        var people = new List<PersonView>();
+
+        using var conn = new SqlConnection(_connectionString);
+        using var cmd = new SqlCommand("SELECT * FROM vw_people", conn);
+
+        conn.Open();
+        using var reader = cmd.ExecuteReader();
+        while (reader.Read())
+        {
+            people.Add(ReadPersonView(reader));
+        }
+
+        return people;
+    }
+
 }

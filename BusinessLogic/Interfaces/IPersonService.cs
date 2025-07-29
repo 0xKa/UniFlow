@@ -9,4 +9,7 @@ public interface IPersonService
     int Add(PersonDTO dto);
     bool Update(PersonDTO dto);
     bool Delete(int id);
+
+    List<PersonViewDTO> GetAllFromView();
+
 }

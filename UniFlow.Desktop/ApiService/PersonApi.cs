@@ -58,4 +58,16 @@ public class PersonApi
         return response.IsSuccessStatusCode;
     }
 
+    public async Task<List<PersonViewDTO>> GetAllFromViewAsync()
+    {
+        try
+        {
+            return await _http.GetFromJsonAsync<List<PersonViewDTO>>("api/People/view") ?? new();
+        }
+        catch
+        {
+            return new List<PersonViewDTO>();
+        }
+    }
+
 }

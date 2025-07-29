@@ -103,4 +103,17 @@ public class PeopleController : ControllerBase
     }
 
 
+    [HttpGet("view", Name = "GetAllPeopleFromView")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<IEnumerable<PersonViewDTO>> GetAllPeopleFromView()
+    {
+        List<PersonViewDTO> people = _personService.GetAllFromView();
+
+        if (people == null || people.Count == 0)
+            return NotFound("No people found in the system");
+
+        return Ok(people);
+    }
+
 }

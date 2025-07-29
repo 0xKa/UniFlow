@@ -47,4 +47,10 @@ public class PersonService : IPersonService
         return _personRepository.Delete(id);
     }
 
+    public List<PersonViewDTO> GetAllFromView()
+    {
+        List<PersonView> people = _personRepository.GetAllFromView();
+        return people.Select(p => p.ToDTO()).ToList();
+    }
+
 }

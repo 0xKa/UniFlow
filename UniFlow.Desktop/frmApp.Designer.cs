@@ -59,7 +59,7 @@
             titleBar.Dock = DockStyle.Top;
             titleBar.Font = new Font("Segoe UI", 12F);
             titleBar.ForeColor = Color.FromArgb(242, 246, 252);
-            titleBar.Image = Properties.Resources.uniflow_icon;
+            titleBar.Image = Properties.Resources.uniflow_app_icon_png;
             titleBar.Location = new Point(0, 0);
             titleBar.Name = "titleBar";
             titleBar.Size = new Size(1200, 40);
@@ -313,9 +313,8 @@
             MaximumSize = new Size(1366, 768);
             MinimumSize = new Size(190, 40);
             Name = "frmApp";
-            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "app";
+            Text = "UniFlow";
             titleBar.ResumeLayout(false);
             pnlSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbMainIcon).EndInit();

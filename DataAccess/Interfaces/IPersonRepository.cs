@@ -9,4 +9,6 @@ public interface IPersonRepository
     int Add(Person person);
     bool Update(Person person);
     bool Delete(int id);
+
+    List<PersonView> GetAllFromView();
 }
