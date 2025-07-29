@@ -153,7 +153,7 @@ namespace UniFlow.Desktop
         }
         private void rbMale_CheckedChanged(object sender) => _ApplyGenderFilter("Male");
         private void rbFemale_CheckedChanged(object sender) => _ApplyGenderFilter("Female");
-    
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txbSearchTerm.Text = string.Empty;
@@ -161,6 +161,25 @@ namespace UniFlow.Desktop
             _bindingSource.DataSource = _allPeople;
             lblTotalRecords.Text = _allPeople.Count.ToString();
         }
-    
+
+        private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroContextMenuStrip1.Close();
+            MessageBox.Show("This will show the info of the selected person.\n\n" +
+                            "You can add, edit, delete, and search for people.\n\n" +
+                            "Developed by me.",
+                            "Information",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            new Form()
+            {
+                Name = "frmAddNewPerson",
+                StartPosition = FormStartPosition.CenterParent
+            }.ShowDialog(this);
+        }
     }
 }

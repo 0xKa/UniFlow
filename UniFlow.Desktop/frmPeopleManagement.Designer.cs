@@ -28,14 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeopleManagement));
             txbSearchTerm = new ReaLTaiizor.Controls.MetroTextBox();
             dgvPeople = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
+            metroContextMenuStrip1 = new ReaLTaiizor.Controls.MetroContextMenuStrip();
+            showInfoToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripSeparator();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            addNewPersonToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripSeparator();
+            sendEmailToolStripMenuItem = new ToolStripMenuItem();
+            sendMessageToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
+            btnAddNew = new Button();
+            imageList1 = new ImageList(components);
             pnlFilter = new Panel();
             pnlGenderSelection = new Panel();
             rbFemale = new ReaLTaiizor.Controls.MetroRadioButton();
@@ -48,6 +61,7 @@
             metroLabel1 = new ReaLTaiizor.Controls.MetroLabel();
             notificationBox = new ReaLTaiizor.Controls.ForeverNotification();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
+            metroContextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             pnlFilter.SuspendLayout();
             pnlGenderSelection.SuspendLayout();
@@ -106,6 +120,7 @@
             dgvPeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvPeople.ColumnHeadersHeight = 27;
             dgvPeople.Columns.AddRange(new DataGridViewColumn[] { Column1 });
+            dgvPeople.ContextMenuStrip = metroContextMenuStrip1;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -138,8 +153,73 @@
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             // 
+            // metroContextMenuStrip1
+            // 
+            metroContextMenuStrip1.IsDerivedStyle = true;
+            metroContextMenuStrip1.Items.AddRange(new ToolStripItem[] { showInfoToolStripMenuItem, toolStripMenuItem1, editToolStripMenuItem, deleteToolStripMenuItem, addNewPersonToolStripMenuItem, toolStripMenuItem2, sendEmailToolStripMenuItem, sendMessageToolStripMenuItem });
+            metroContextMenuStrip1.Name = "metroContextMenuStrip1";
+            metroContextMenuStrip1.Size = new Size(163, 148);
+            metroContextMenuStrip1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            metroContextMenuStrip1.StyleManager = null;
+            metroContextMenuStrip1.ThemeAuthor = "Taiizor";
+            metroContextMenuStrip1.ThemeName = "MetroDark";
+            // 
+            // showInfoToolStripMenuItem
+            // 
+            showInfoToolStripMenuItem.Image = Properties.Resources.info;
+            showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            showInfoToolStripMenuItem.Size = new Size(162, 22);
+            showInfoToolStripMenuItem.Text = "Show Info";
+            showInfoToolStripMenuItem.Click += showInfoToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(159, 6);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Image = Properties.Resources.edit;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(162, 22);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Image = Properties.Resources.delete;
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(162, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            addNewPersonToolStripMenuItem.Image = Properties.Resources.add;
+            addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            addNewPersonToolStripMenuItem.Size = new Size(162, 22);
+            addNewPersonToolStripMenuItem.Text = "Add New Person";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(159, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            sendEmailToolStripMenuItem.Image = Properties.Resources.email;
+            sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            sendEmailToolStripMenuItem.Size = new Size(162, 22);
+            sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // sendMessageToolStripMenuItem
+            // 
+            sendMessageToolStripMenuItem.Image = Properties.Resources.message1;
+            sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
+            sendMessageToolStripMenuItem.Size = new Size(162, 22);
+            sendMessageToolStripMenuItem.Text = "Send Message";
+            // 
             // panel1
             // 
+            panel1.Controls.Add(btnAddNew);
             panel1.Controls.Add(pnlFilter);
             panel1.Controls.Add(lblTotalRecords);
             panel1.Controls.Add(metroLabel1);
@@ -150,6 +230,28 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(940, 660);
             panel1.TabIndex = 20;
+            // 
+            // btnAddNew
+            // 
+            btnAddNew.FlatAppearance.BorderSize = 0;
+            btnAddNew.FlatAppearance.MouseDownBackColor = Color.FromArgb(120, 65, 177, 225);
+            btnAddNew.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
+            btnAddNew.FlatStyle = FlatStyle.Flat;
+            btnAddNew.ImageKey = "add.png";
+            btnAddNew.ImageList = imageList1;
+            btnAddNew.Location = new Point(878, 113);
+            btnAddNew.Name = "btnAddNew";
+            btnAddNew.Size = new Size(50, 50);
+            btnAddNew.TabIndex = 29;
+            btnAddNew.UseVisualStyleBackColor = true;
+            btnAddNew.Click += btnAddNew_Click;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "add.png");
             // 
             // pnlFilter
             // 
@@ -290,7 +392,7 @@
             btnClear.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             btnClear.StyleManager = null;
             btnClear.TabIndex = 29;
-            btnClear.Text = "clear";
+            btnClear.Text = "Clear";
             btnClear.ThemeAuthor = "Taiizor";
             btnClear.ThemeName = "MetroDark";
             btnClear.Click += btnClear_Click;
@@ -348,6 +450,7 @@
             Text = "frmPeopleManagement";
             Load += frmPeopleManagement_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
+            metroContextMenuStrip1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             pnlFilter.ResumeLayout(false);
             pnlGenderSelection.ResumeLayout(false);
@@ -372,5 +475,16 @@
         private ReaLTaiizor.Controls.MetroRadioButton rbMale;
         private ReaLTaiizor.Controls.MetroRadioButton rbFemale;
         private Panel pnlSearchBar;
+        private ReaLTaiizor.Controls.MetroContextMenuStrip metroContextMenuStrip1;
+        private ToolStripMenuItem showInfoToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem2;
+        private ToolStripMenuItem sendEmailToolStripMenuItem;
+        private ToolStripMenuItem sendMessageToolStripMenuItem;
+        private Button btnAddNew;
+        private ImageList imageList1;
     }
 }
