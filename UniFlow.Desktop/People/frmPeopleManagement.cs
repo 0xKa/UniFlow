@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using UniFlow.Desktop.ApiService;
 using UniFlow.DTOs;
 
@@ -34,7 +26,7 @@ namespace UniFlow.Desktop
             _bindingSource.DataSource = _allPeople;
 
             if (_allPeople.Count == 0)
-                notificationBox.Visible = true;
+                pnlErrorPanel.Visible = true;
             else
                 dgvPeople.DataSource = _bindingSource;
 
@@ -179,7 +171,14 @@ namespace UniFlow.Desktop
             {
                 Name = "frmAddNewPerson",
                 StartPosition = FormStartPosition.CenterParent
-            }.ShowDialog(this);
+            }.ShowDialog();
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            pnlErrorPanel.Visible = false;
+            this.frmPeopleManagement_Load(sender, e);
+        }
+        
     }
 }

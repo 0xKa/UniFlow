@@ -47,8 +47,11 @@
             sendEmailToolStripMenuItem = new ToolStripMenuItem();
             sendMessageToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
-            btnAddNew = new Button();
+            pnlErrorPanel = new Panel();
+            btnRefresh = new Button();
             imageList1 = new ImageList(components);
+            notificationBox = new ReaLTaiizor.Controls.ForeverNotification();
+            btnAddNew = new Button();
             pnlFilter = new Panel();
             pnlGenderSelection = new Panel();
             rbFemale = new ReaLTaiizor.Controls.MetroRadioButton();
@@ -59,10 +62,10 @@
             btnClear = new ReaLTaiizor.Controls.MetroButton();
             lblTotalRecords = new ReaLTaiizor.Controls.MetroLabel();
             metroLabel1 = new ReaLTaiizor.Controls.MetroLabel();
-            notificationBox = new ReaLTaiizor.Controls.ForeverNotification();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             metroContextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
+            pnlErrorPanel.SuspendLayout();
             pnlFilter.SuspendLayout();
             pnlGenderSelection.SuspendLayout();
             pnlSearchBar.SuspendLayout();
@@ -219,17 +222,63 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(pnlErrorPanel);
             panel1.Controls.Add(btnAddNew);
             panel1.Controls.Add(pnlFilter);
             panel1.Controls.Add(lblTotalRecords);
             panel1.Controls.Add(metroLabel1);
-            panel1.Controls.Add(notificationBox);
             panel1.Controls.Add(dgvPeople);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(940, 660);
             panel1.TabIndex = 20;
+            // 
+            // pnlErrorPanel
+            // 
+            pnlErrorPanel.Controls.Add(btnRefresh);
+            pnlErrorPanel.Controls.Add(notificationBox);
+            pnlErrorPanel.Location = new Point(12, 201);
+            pnlErrorPanel.Name = "pnlErrorPanel";
+            pnlErrorPanel.Size = new Size(916, 69);
+            pnlErrorPanel.TabIndex = 31;
+            pnlErrorPanel.Visible = false;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Transparent;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(87, 70, 70);
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.ImageKey = "refresh.png";
+            btnRefresh.ImageList = imageList1;
+            btnRefresh.Location = new Point(866, 0);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(50, 42);
+            btnRefresh.TabIndex = 32;
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "add.png");
+            imageList1.Images.SetKeyName(1, "refresh.png");
+            // 
+            // notificationBox
+            // 
+            notificationBox.BackColor = Color.FromArgb(60, 70, 73);
+            notificationBox.Close = false;
+            notificationBox.Font = new Font("Segoe UI", 10F);
+            notificationBox.Kind = ReaLTaiizor.Controls.ForeverNotification._Kind.Error;
+            notificationBox.Location = new Point(0, 0);
+            notificationBox.Name = "notificationBox";
+            notificationBox.Size = new Size(916, 42);
+            notificationBox.TabIndex = 21;
+            notificationBox.Text = "Failed to load data. ";
             // 
             // btnAddNew
             // 
@@ -245,13 +294,6 @@
             btnAddNew.TabIndex = 29;
             btnAddNew.UseVisualStyleBackColor = true;
             btnAddNew.Click += btnAddNew_Click;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "add.png");
             // 
             // pnlFilter
             // 
@@ -425,19 +467,6 @@
             metroLabel1.ThemeAuthor = "Taiizor";
             metroLabel1.ThemeName = "MetroDark";
             // 
-            // notificationBox
-            // 
-            notificationBox.BackColor = Color.FromArgb(60, 70, 73);
-            notificationBox.Close = true;
-            notificationBox.Font = new Font("Segoe UI", 10F);
-            notificationBox.Kind = ReaLTaiizor.Controls.ForeverNotification._Kind.Error;
-            notificationBox.Location = new Point(12, 198);
-            notificationBox.Name = "notificationBox";
-            notificationBox.Size = new Size(916, 42);
-            notificationBox.TabIndex = 21;
-            notificationBox.Text = "Failed to load data. ";
-            notificationBox.Visible = false;
-            // 
             // frmPeopleManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -452,6 +481,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             metroContextMenuStrip1.ResumeLayout(false);
             panel1.ResumeLayout(false);
+            pnlErrorPanel.ResumeLayout(false);
             pnlFilter.ResumeLayout(false);
             pnlGenderSelection.ResumeLayout(false);
             pnlSearchBar.ResumeLayout(false);
@@ -459,6 +489,9 @@
         }
 
         #endregion
+
+
+
         private ReaLTaiizor.Controls.MetroTextBox txbSearchTerm;
         private DataGridView dgvPeople;
         private Panel panel1;
@@ -486,5 +519,7 @@
         private ToolStripMenuItem sendMessageToolStripMenuItem;
         private Button btnAddNew;
         private ImageList imageList1;
+        private Panel pnlErrorPanel;
+        private Button btnRefresh;
     }
 }
