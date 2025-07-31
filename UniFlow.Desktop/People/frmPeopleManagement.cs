@@ -14,6 +14,16 @@ namespace UniFlow.Desktop
         private BindingSource _bindingSource = new BindingSource();
         private static List<PersonViewDTO> _allPeople = new();
 
+        private async Task _RefreshDataAsync()
+        {
+            pnlErrorPanel.Visible = false;
+            notificationBox.Visible = true;
+            _allPeople.Clear();
+
+            await _LoadDGV();
+            _EditDGV();
+            _InitializeSearchOptions();
+        }
         private async Task _LoadDGV()
         {
             this.Cursor = Cursors.WaitCursor;
@@ -63,12 +73,10 @@ namespace UniFlow.Desktop
 
 
         private async void frmPeopleManagement_Load(object sender, EventArgs e)
-        {
-            await _LoadDGV();
-            _EditDGV();
-            _InitializeSearchOptions();
+        => await _RefreshDataAsync();
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        => await _RefreshDataAsync();
 
-        }
 
         private void cbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -154,6 +162,16 @@ namespace UniFlow.Desktop
             lblTotalRecords.Text = _allPeople.Count.ToString();
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            new Form()
+            {
+                Name = "frmAddNewPerson",
+                StartPosition = FormStartPosition.CenterParent
+            }.ShowDialog();
+        }
+
+
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             metroContextMenuStrip1.Close();
@@ -164,21 +182,10 @@ namespace UniFlow.Desktop
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
         }
-
-        private void btnAddNew_Click(object sender, EventArgs e)
+        private async void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Form()
-            {
-                Name = "frmAddNewPerson",
-                StartPosition = FormStartPosition.CenterParent
-            }.ShowDialog();
+            metroContextMenuStrip1.Close();
+            await _RefreshDataAsync();
         }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            pnlErrorPanel.Visible = false;
-            this.frmPeopleManagement_Load(sender, e);
-        }
-        
     }
 }
