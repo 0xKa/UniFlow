@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using UniFlow.Desktop.ApiService;
+using UniFlow.Desktop.templates;
 using UniFlow.DTOs;
 
 namespace UniFlow.Desktop
@@ -16,6 +17,8 @@ namespace UniFlow.Desktop
 
         private async Task _RefreshDataAsync()
         {
+            this.Cursor = Cursors.WaitCursor;
+
             pnlErrorPanel.Visible = false;
             notificationBox.Visible = true;
             _allPeople.Clear();
@@ -23,10 +26,11 @@ namespace UniFlow.Desktop
             await _LoadDGV();
             _EditDGV();
             _InitializeSearchOptions();
+
+            this.Cursor = Cursors.Default;
         }
         private async Task _LoadDGV()
         {
-            this.Cursor = Cursors.WaitCursor;
 
 
             dgvPeople.Columns.Clear();
@@ -41,7 +45,6 @@ namespace UniFlow.Desktop
                 dgvPeople.DataSource = _bindingSource;
 
             lblTotalRecords.Text = _allPeople.Count.ToString();
-            this.Cursor = Cursors.Default;
         }
         private void _InitializeSearchOptions()
         {
@@ -164,11 +167,9 @@ namespace UniFlow.Desktop
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            new Form()
-            {
-                Name = "frmAddNewPerson",
-                StartPosition = FormStartPosition.CenterParent
-            }.ShowDialog();
+            frmDialog frm = new();
+            frm.FormClosed += async (s, args) => await _RefreshDataAsync();
+            frm.ShowDialog();
         }
 
 

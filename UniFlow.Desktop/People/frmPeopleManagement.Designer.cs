@@ -517,7 +517,6 @@
         private ReaLTaiizor.Controls.MetroLabel lblTotalRecords;
         private ReaLTaiizor.Controls.MetroComboBox cbSearchOptions;
         private ReaLTaiizor.Controls.MetroLabel metroLabel2;
-        private GroupBox groupBox1;
         private Panel pnlFilter;
         private ReaLTaiizor.Controls.MetroButton btnClear;
         private Panel pnlGenderSelection;
