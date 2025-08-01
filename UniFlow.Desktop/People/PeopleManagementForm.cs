@@ -1,13 +1,13 @@
 ﻿using System.Data;
 using UniFlow.Desktop.ApiService;
-using UniFlow.Desktop.templates;
+using UniFlow.Desktop.People;
 using UniFlow.DTOs;
 
 namespace UniFlow.Desktop
 {
-    public partial class frmPeopleManagement : Form
+    public partial class PeopleManagementForm : Form
     {
-        public frmPeopleManagement()
+        public PeopleManagementForm()
         {
             InitializeComponent();
         }
@@ -167,7 +167,7 @@ namespace UniFlow.Desktop
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            frmDialog frm = new();
+            AddEditPersonForm frm = new();
             frm.FormClosed += async (s, args) => await _RefreshDataAsync();
             frm.ShowDialog();
         }

@@ -15,7 +15,7 @@ namespace UniFlow.Desktop
             //#pragma warning disable WFO5001 // Type is for evaluation purposes only and is subject to change or removal in future updates. 
             //Application.SetColorMode(SystemColorMode.Dark);
 
-            Application.Run(new frmApp());
+            Application.Run(new AppForm());
         }
     }
 }

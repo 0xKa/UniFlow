@@ -1,6 +1,6 @@
 ﻿namespace UniFlow.Desktop
 {
-    partial class frmDashboard
+    partial class DashboardForm
     {
         /// <summary>
         /// Required designer variable.

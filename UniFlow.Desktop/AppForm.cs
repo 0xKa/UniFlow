@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UniFlow.Desktop
 {
-    public partial class frmApp : Form
+    public partial class AppForm : Form
     {
-        public frmApp()
+        public AppForm()
         {
             InitializeComponent();
         }
@@ -34,9 +34,9 @@ namespace UniFlow.Desktop
         }
 
         private void btnDashboard_Click(object sender, EventArgs e) 
-            => _LoadForm(new frmDashboard(), Properties.Resources.dashboard);
+            => _LoadForm(new DashboardForm(), Properties.Resources.dashboard);
         private void btnPeople_Click(object sender, EventArgs e) 
-            => _LoadForm(new frmPeopleManagement(), Properties.Resources.people);
+            => _LoadForm(new PeopleManagementForm(), Properties.Resources.people);
     
     }
 }

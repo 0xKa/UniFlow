@@ -1,6 +1,6 @@
 ﻿namespace UniFlow.Desktop
 {
-    partial class frmPeopleManagement
+    partial class PeopleManagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeopleManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeopleManagementForm));
             txbSearchTerm = new ReaLTaiizor.Controls.MetroTextBox();
             dgvPeople = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -163,7 +163,7 @@
             metroContextMenuStrip1.IsDerivedStyle = true;
             metroContextMenuStrip1.Items.AddRange(new ToolStripItem[] { showInfoToolStripMenuItem, toolStripMenuItem1, editToolStripMenuItem, deleteToolStripMenuItem, addNewPersonToolStripMenuItem, toolStripMenuItem2, sendEmailToolStripMenuItem, sendMessageToolStripMenuItem, toolStripMenuItem3, refreshToolStripMenuItem });
             metroContextMenuStrip1.Name = "metroContextMenuStrip1";
-            metroContextMenuStrip1.Size = new Size(181, 198);
+            metroContextMenuStrip1.Size = new Size(163, 176);
             metroContextMenuStrip1.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             metroContextMenuStrip1.StyleManager = null;
             metroContextMenuStrip1.ThemeAuthor = "Taiizor";
@@ -173,65 +173,65 @@
             // 
             showInfoToolStripMenuItem.Image = Properties.Resources.info;
             showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
-            showInfoToolStripMenuItem.Size = new Size(180, 22);
+            showInfoToolStripMenuItem.Size = new Size(162, 22);
             showInfoToolStripMenuItem.Text = "Show Info";
             showInfoToolStripMenuItem.Click += showInfoToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(177, 6);
+            toolStripMenuItem1.Size = new Size(159, 6);
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Image = Properties.Resources.edit;
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(180, 22);
+            editToolStripMenuItem.Size = new Size(162, 22);
             editToolStripMenuItem.Text = "Edit";
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Image = Properties.Resources.delete;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Size = new Size(162, 22);
             deleteToolStripMenuItem.Text = "Delete";
             // 
             // addNewPersonToolStripMenuItem
             // 
             addNewPersonToolStripMenuItem.Image = Properties.Resources.add;
             addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            addNewPersonToolStripMenuItem.Size = new Size(180, 22);
+            addNewPersonToolStripMenuItem.Size = new Size(162, 22);
             addNewPersonToolStripMenuItem.Text = "Add New Person";
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(177, 6);
+            toolStripMenuItem2.Size = new Size(159, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             sendEmailToolStripMenuItem.Image = Properties.Resources.email;
             sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            sendEmailToolStripMenuItem.Size = new Size(180, 22);
+            sendEmailToolStripMenuItem.Size = new Size(162, 22);
             sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // sendMessageToolStripMenuItem
             // 
             sendMessageToolStripMenuItem.Image = Properties.Resources.message1;
             sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
-            sendMessageToolStripMenuItem.Size = new Size(180, 22);
+            sendMessageToolStripMenuItem.Size = new Size(162, 22);
             sendMessageToolStripMenuItem.Text = "Send Message";
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(177, 6);
+            toolStripMenuItem3.Size = new Size(159, 6);
             // 
             // refreshToolStripMenuItem
             // 
             refreshToolStripMenuItem.Image = Properties.Resources.refresh;
             refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            refreshToolStripMenuItem.Size = new Size(180, 22);
+            refreshToolStripMenuItem.Size = new Size(162, 22);
             refreshToolStripMenuItem.Text = "Refresh";
             refreshToolStripMenuItem.Click += refreshToolStripMenuItem_Click;
             // 
@@ -483,7 +483,7 @@
             metroLabel1.ThemeAuthor = "Taiizor";
             metroLabel1.ThemeName = "MetroDark";
             // 
-            // frmPeopleManagement
+            // PeopleManagementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -491,8 +491,8 @@
             ClientSize = new Size(940, 660);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmPeopleManagement";
-            Text = "frmPeopleManagement";
+            Name = "PeopleManagementForm";
+            Text = "People Management";
             Load += frmPeopleManagement_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             metroContextMenuStrip1.ResumeLayout(false);

@@ -1,6 +1,6 @@
-﻿namespace UniFlow.Desktop.templates
+﻿namespace UniFlow.Desktop
 {
-    partial class frmDialog
+    partial class DialogForm
     {
         /// <summary>
         /// Required designer variable.

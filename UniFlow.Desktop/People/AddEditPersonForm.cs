@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UniFlow.Desktop.templates
+namespace UniFlow.Desktop.People
 {
-    public partial class frmDialog : Form
+    public partial class AddEditPersonForm : Form
     {
-        public frmDialog()
+        public AddEditPersonForm()
         {
             InitializeComponent();
         }

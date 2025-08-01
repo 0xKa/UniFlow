@@ -1,6 +1,6 @@
 ﻿namespace UniFlow.Desktop
 {
-    partial class frmApp
+    partial class AppForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmApp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             titleBar = new ReaLTaiizor.Forms.HopeForm();
             metroControlBox1 = new ReaLTaiizor.Controls.MetroControlBox();
             pnlMain = new Panel();
