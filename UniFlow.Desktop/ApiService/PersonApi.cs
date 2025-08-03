@@ -24,12 +24,12 @@ public class PersonApi
     {
         try
         {
-            return await _http.GetFromJsonAsync<List<PersonDTO>>("api/People") ?? new List<PersonDTO>();
+            return await _http.GetFromJsonAsync<List<PersonDTO>>("api/People") ?? []; // Return an empty list if the response is null
 
         }
         catch 
         {
-            return new List<PersonDTO>();
+            return [];
         }
     }
 
@@ -62,11 +62,11 @@ public class PersonApi
     {
         try
         {
-            return await _http.GetFromJsonAsync<List<PersonViewDTO>>("api/People/view") ?? new();
+            return await _http.GetFromJsonAsync<List<PersonViewDTO>>("api/People/view") ?? [];
         }
         catch
         {
-            return new List<PersonViewDTO>();
+            return [];
         }
     }
 

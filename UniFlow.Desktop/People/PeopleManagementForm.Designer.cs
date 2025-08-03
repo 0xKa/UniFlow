@@ -262,7 +262,8 @@
             // btnRefresh
             // 
             btnRefresh.BackColor = Color.Transparent;
-            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(87, 70, 70);
+            btnRefresh.FlatAppearance.BorderSize = 2;
             btnRefresh.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(87, 70, 70);
             btnRefresh.FlatStyle = FlatStyle.Flat;
