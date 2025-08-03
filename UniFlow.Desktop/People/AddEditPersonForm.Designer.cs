@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            spaceForm1 = new ReaLTaiizor.Forms.SpaceForm();
+            spaceForm = new ReaLTaiizor.Forms.SpaceForm();
+            btnClear = new ReaLTaiizor.Controls.MetroButton();
             pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            pbModeIcon = new PictureBox();
             lblPersonID = new ReaLTaiizor.Controls.MetroLabel();
             metroLabel2 = new ReaLTaiizor.Controls.MetroLabel();
             panel1 = new Panel();
+            llRemoveImage = new ReaLTaiizor.Controls.NightLinkLabel();
+            llSetImage = new ReaLTaiizor.Controls.NightLinkLabel();
             txbAddress = new ReaLTaiizor.Controls.MetroTextBox();
             dtpDateOfBirth = new ReaLTaiizor.Controls.PoisonDateTime();
             pnlGenderSelection = new Panel();
@@ -51,65 +54,95 @@
             metroLabel5 = new ReaLTaiizor.Controls.MetroLabel();
             metroLabel4 = new ReaLTaiizor.Controls.MetroLabel();
             metroLabel1 = new ReaLTaiizor.Controls.MetroLabel();
-            btnClear = new ReaLTaiizor.Controls.MetroButton();
+            btnSave = new ReaLTaiizor.Controls.MetroButton();
             spaceClose1 = new ReaLTaiizor.Controls.SpaceClose();
-            spaceForm1.SuspendLayout();
+            ImageSelectorDialog = new OpenFileDialog();
+            spaceForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbModeIcon).BeginInit();
             panel1.SuspendLayout();
             pnlGenderSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPersonImage).BeginInit();
             SuspendLayout();
             // 
-            // spaceForm1
+            // spaceForm
             // 
-            spaceForm1.BackColor = Color.FromArgb(42, 42, 42);
-            spaceForm1.BorderStyle = FormBorderStyle.None;
-            spaceForm1.Controls.Add(pictureBox3);
-            spaceForm1.Controls.Add(pictureBox2);
-            spaceForm1.Controls.Add(lblPersonID);
-            spaceForm1.Controls.Add(metroLabel2);
-            spaceForm1.Controls.Add(panel1);
-            spaceForm1.Controls.Add(btnClear);
-            spaceForm1.Controls.Add(spaceClose1);
-            spaceForm1.Customization = "Kioq/yAgIP8qKir/Kioq/xwcHP/+/v7/Kysr/xkZGf8=";
-            spaceForm1.Dock = DockStyle.Fill;
-            spaceForm1.Font = new Font("Verdana", 8F);
-            spaceForm1.Image = null;
-            spaceForm1.Location = new Point(0, 0);
-            spaceForm1.MinimumSize = new Size(200, 25);
-            spaceForm1.Movable = true;
-            spaceForm1.Name = "spaceForm1";
-            spaceForm1.NoRounding = true;
-            spaceForm1.Padding = new Padding(5, 25, 5, 5);
-            spaceForm1.Sizable = false;
-            spaceForm1.Size = new Size(850, 450);
-            spaceForm1.SmartBounds = false;
-            spaceForm1.StartPosition = FormStartPosition.CenterParent;
-            spaceForm1.TabIndex = 0;
-            spaceForm1.Text = "Add / Edit Person";
-            spaceForm1.TransparencyKey = Color.Purple;
-            spaceForm1.Transparent = false;
+            spaceForm.BackColor = Color.FromArgb(42, 42, 42);
+            spaceForm.BorderStyle = FormBorderStyle.None;
+            spaceForm.Controls.Add(btnClear);
+            spaceForm.Controls.Add(pictureBox3);
+            spaceForm.Controls.Add(pbModeIcon);
+            spaceForm.Controls.Add(lblPersonID);
+            spaceForm.Controls.Add(metroLabel2);
+            spaceForm.Controls.Add(panel1);
+            spaceForm.Controls.Add(btnSave);
+            spaceForm.Controls.Add(spaceClose1);
+            spaceForm.Customization = "Kioq/yAgIP8qKir/Kioq/xwcHP/+/v7/Kysr/xkZGf8=";
+            spaceForm.Dock = DockStyle.Fill;
+            spaceForm.Font = new Font("Verdana", 8F);
+            spaceForm.Image = null;
+            spaceForm.Location = new Point(0, 0);
+            spaceForm.MinimumSize = new Size(200, 25);
+            spaceForm.Movable = true;
+            spaceForm.Name = "spaceForm";
+            spaceForm.NoRounding = true;
+            spaceForm.Padding = new Padding(5, 25, 5, 5);
+            spaceForm.Sizable = false;
+            spaceForm.Size = new Size(850, 450);
+            spaceForm.SmartBounds = false;
+            spaceForm.StartPosition = FormStartPosition.CenterParent;
+            spaceForm.TabIndex = 0;
+            spaceForm.Text = "Add / Edit Person";
+            spaceForm.TransparencyKey = Color.Purple;
+            spaceForm.Transparent = false;
+            // 
+            // btnClear
+            // 
+            btnClear.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+            btnClear.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+            btnClear.DisabledForeColor = Color.Gray;
+            btnClear.Font = new Font("Microsoft Sans Serif", 10F);
+            btnClear.HoverBorderColor = Color.FromArgb(95, 207, 255);
+            btnClear.HoverColor = Color.FromArgb(95, 207, 255);
+            btnClear.HoverTextColor = Color.White;
+            btnClear.IsDerivedStyle = false;
+            btnClear.Location = new Point(8, 398);
+            btnClear.Name = "btnClear";
+            btnClear.NormalBorderColor = Color.FromArgb(224, 224, 224);
+            btnClear.NormalColor = Color.FromArgb(30, 30, 30);
+            btnClear.NormalTextColor = Color.White;
+            btnClear.PressBorderColor = Color.FromArgb(224, 224, 224);
+            btnClear.PressColor = Color.Silver;
+            btnClear.PressTextColor = Color.White;
+            btnClear.Size = new Size(196, 44);
+            btnClear.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            btnClear.StyleManager = null;
+            btnClear.TabIndex = 37;
+            btnClear.Text = "Clear";
+            btnClear.ThemeAuthor = "Taiizor";
+            btnClear.ThemeName = "MetroDark";
+            btnClear.Click += btnClear_Click;
             // 
             // pictureBox3
             // 
+            pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = Properties.Resources.save;
-            pictureBox3.Location = new Point(642, 398);
+            pictureBox3.Location = new Point(609, 398);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(56, 44);
+            pictureBox3.Size = new Size(27, 20);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 36;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox2
+            // pbModeIcon
             // 
-            pictureBox2.Image = Properties.Resources.add;
-            pictureBox2.Location = new Point(580, 398);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(56, 44);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
+            pbModeIcon.Image = Properties.Resources.add;
+            pbModeIcon.Location = new Point(609, 422);
+            pbModeIcon.Name = "pbModeIcon";
+            pbModeIcon.Size = new Size(27, 20);
+            pbModeIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            pbModeIcon.TabIndex = 10;
+            pbModeIcon.TabStop = false;
             // 
             // lblPersonID
             // 
@@ -145,6 +178,8 @@
             // 
             panel1.BackColor = Color.FromArgb(42, 42, 42);
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(llRemoveImage);
+            panel1.Controls.Add(llSetImage);
             panel1.Controls.Add(txbAddress);
             panel1.Controls.Add(dtpDateOfBirth);
             panel1.Controls.Add(pnlGenderSelection);
@@ -164,6 +199,41 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(830, 294);
             panel1.TabIndex = 34;
+            // 
+            // llRemoveImage
+            // 
+            llRemoveImage.ActiveLinkColor = Color.FromArgb(85, 197, 245);
+            llRemoveImage.AutoSize = true;
+            llRemoveImage.BackColor = Color.Transparent;
+            llRemoveImage.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            llRemoveImage.LinkBehavior = LinkBehavior.HoverUnderline;
+            llRemoveImage.LinkColor = Color.FromArgb(45, 157, 205);
+            llRemoveImage.Location = new Point(702, 192);
+            llRemoveImage.Name = "llRemoveImage";
+            llRemoveImage.Size = new Size(91, 15);
+            llRemoveImage.TabIndex = 37;
+            llRemoveImage.TabStop = true;
+            llRemoveImage.Text = "Remove Image";
+            llRemoveImage.Visible = false;
+            llRemoveImage.VisitedLinkColor = Color.FromArgb(45, 157, 205);
+            llRemoveImage.LinkClicked += llRemoveImage_LinkClicked;
+            // 
+            // llSetImage
+            // 
+            llSetImage.ActiveLinkColor = Color.FromArgb(85, 197, 245);
+            llSetImage.AutoSize = true;
+            llSetImage.BackColor = Color.Transparent;
+            llSetImage.Font = new Font("Consolas", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            llSetImage.LinkBehavior = LinkBehavior.HoverUnderline;
+            llSetImage.LinkColor = Color.FromArgb(45, 157, 205);
+            llSetImage.Location = new Point(712, 171);
+            llSetImage.Name = "llSetImage";
+            llSetImage.Size = new Size(70, 15);
+            llSetImage.TabIndex = 36;
+            llSetImage.TabStop = true;
+            llSetImage.Text = "Set Image";
+            llSetImage.VisitedLinkColor = Color.FromArgb(45, 157, 205);
+            llSetImage.LinkClicked += llSetImage_LinkClicked;
             // 
             // txbAddress
             // 
@@ -242,6 +312,7 @@
             rbFemale.Text = "Female";
             rbFemale.ThemeAuthor = "Taiizor";
             rbFemale.ThemeName = "MetroDark";
+            rbFemale.CheckedChanged += rbFemale_CheckedChanged;
             // 
             // rbMale
             // 
@@ -263,6 +334,7 @@
             rbMale.Text = "Male";
             rbMale.ThemeAuthor = "Taiizor";
             rbMale.ThemeName = "MetroDark";
+            rbMale.CheckedChanged += rbMale_CheckedChanged;
             // 
             // txbLastName
             // 
@@ -382,7 +454,7 @@
             // 
             // pbPersonImage
             // 
-            pbPersonImage.Image = Properties.Resources.uniflow_app_icon_png;
+            pbPersonImage.Image = Properties.Resources.default_male;
             pbPersonImage.Location = new Point(667, 3);
             pbPersonImage.Name = "pbPersonImage";
             pbPersonImage.Size = new Size(160, 160);
@@ -488,31 +560,31 @@
             metroLabel1.ThemeAuthor = "Taiizor";
             metroLabel1.ThemeName = "MetroDark";
             // 
-            // btnClear
+            // btnSave
             // 
-            btnClear.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
-            btnClear.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
-            btnClear.DisabledForeColor = Color.Gray;
-            btnClear.Font = new Font("Microsoft Sans Serif", 10F);
-            btnClear.HoverBorderColor = Color.FromArgb(95, 207, 255);
-            btnClear.HoverColor = Color.FromArgb(95, 207, 255);
-            btnClear.HoverTextColor = Color.White;
-            btnClear.IsDerivedStyle = false;
-            btnClear.Location = new Point(704, 398);
-            btnClear.Name = "btnClear";
-            btnClear.NormalBorderColor = Color.FromArgb(224, 224, 224);
-            btnClear.NormalColor = Color.FromArgb(30, 30, 30);
-            btnClear.NormalTextColor = Color.White;
-            btnClear.PressBorderColor = Color.FromArgb(224, 224, 224);
-            btnClear.PressColor = Color.Silver;
-            btnClear.PressTextColor = Color.White;
-            btnClear.Size = new Size(134, 44);
-            btnClear.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
-            btnClear.StyleManager = null;
-            btnClear.TabIndex = 30;
-            btnClear.Text = "Save";
-            btnClear.ThemeAuthor = "Taiizor";
-            btnClear.ThemeName = "MetroDark";
+            btnSave.DisabledBackColor = Color.FromArgb(120, 65, 177, 225);
+            btnSave.DisabledBorderColor = Color.FromArgb(120, 65, 177, 225);
+            btnSave.DisabledForeColor = Color.Gray;
+            btnSave.Font = new Font("Microsoft Sans Serif", 10F);
+            btnSave.HoverBorderColor = Color.FromArgb(95, 207, 255);
+            btnSave.HoverColor = Color.FromArgb(95, 207, 255);
+            btnSave.HoverTextColor = Color.White;
+            btnSave.IsDerivedStyle = false;
+            btnSave.Location = new Point(642, 398);
+            btnSave.Name = "btnSave";
+            btnSave.NormalBorderColor = Color.FromArgb(224, 224, 224);
+            btnSave.NormalColor = Color.FromArgb(30, 30, 30);
+            btnSave.NormalTextColor = Color.White;
+            btnSave.PressBorderColor = Color.FromArgb(224, 224, 224);
+            btnSave.PressColor = Color.Silver;
+            btnSave.PressTextColor = Color.White;
+            btnSave.Size = new Size(196, 44);
+            btnSave.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
+            btnSave.StyleManager = null;
+            btnSave.TabIndex = 30;
+            btnSave.Text = "Save";
+            btnSave.ThemeAuthor = "Taiizor";
+            btnSave.ThemeName = "MetroDark";
             // 
             // spaceClose1
             // 
@@ -530,13 +602,18 @@
             spaceClose1.Text = "x";
             spaceClose1.Transparent = false;
             // 
+            // ImageSelectorDialog
+            // 
+            ImageSelectorDialog.FileName = "openFileDialog1";
+            ImageSelectorDialog.Title = "Select a Valid Person Image";
+            // 
             // AddEditPersonForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 42, 42);
             ClientSize = new Size(850, 450);
-            Controls.Add(spaceForm1);
+            Controls.Add(spaceForm);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -547,11 +624,11 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "frmAddEditPerson";
             TransparencyKey = Color.Purple;
-            Load += AddEditPersonForm_Load;
-            spaceForm1.ResumeLayout(false);
+            spaceForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbModeIcon).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             pnlGenderSelection.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbPersonImage).EndInit();
             ResumeLayout(false);
@@ -559,9 +636,9 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.SpaceForm spaceForm1;
+        private ReaLTaiizor.Forms.SpaceForm spaceForm;
         private ReaLTaiizor.Controls.SpaceClose spaceClose1;
-        private ReaLTaiizor.Controls.MetroButton btnClear;
+        private ReaLTaiizor.Controls.MetroButton btnSave;
         private Panel panel1;
         private ReaLTaiizor.Controls.MetroLabel lblPersonID;
         private ReaLTaiizor.Controls.MetroLabel metroLabel2;
@@ -573,7 +650,7 @@
         private ReaLTaiizor.Controls.MetroLabel metroLabel6;
         private ReaLTaiizor.Controls.MetroLabel metroLabel5;
         private ReaLTaiizor.Controls.MetroLabel metroLabel4;
-        private PictureBox pictureBox2;
+        private PictureBox pbModeIcon;
         private PictureBox pictureBox3;
         private ReaLTaiizor.Controls.MetroTextBox txbLastName;
         private ReaLTaiizor.Controls.MetroTextBox txbPhone;
@@ -584,5 +661,9 @@
         private ReaLTaiizor.Controls.MetroRadioButton rbMale;
         private ReaLTaiizor.Controls.PoisonDateTime dtpDateOfBirth;
         private ReaLTaiizor.Controls.MetroTextBox txbAddress;
+        private ReaLTaiizor.Controls.NightLinkLabel llRemoveImage;
+        private ReaLTaiizor.Controls.NightLinkLabel llSetImage;
+        private OpenFileDialog ImageSelectorDialog;
+        private ReaLTaiizor.Controls.MetroButton btnClear;
     }
 }

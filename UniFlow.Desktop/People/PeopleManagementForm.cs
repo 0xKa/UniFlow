@@ -167,7 +167,7 @@ namespace UniFlow.Desktop
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            AddEditPersonForm frm = new();
+            AddEditPersonForm frm = new(-1, Shared.Util.enMode.AddNew);
             frm.FormClosed += async (s, args) => await _RefreshDataAsync();
             frm.ShowDialog();
         }
@@ -187,6 +187,20 @@ namespace UniFlow.Desktop
         {
             metroContextMenuStrip1.Close();
             await _RefreshDataAsync();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
+            {
+                AddEditPersonForm frm = new(personId, Shared.Util.enMode.Update);
+                frm.FormClosed += async (s, args) => await _RefreshDataAsync();
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No person is selected or the selected row is invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
