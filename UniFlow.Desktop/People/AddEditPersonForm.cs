@@ -96,25 +96,41 @@ namespace UniFlow.Desktop.People
 
         private void btnClear_Click(object sender, EventArgs e) => _ClearControlsValue();
 
-        private void rbMale_CheckedChanged(object sender)
+        private void _LoadDefaultImage()
         {
             if (string.IsNullOrEmpty(pbPersonImage.ImageLocation))
-                pbPersonImage.Image = Properties.Resources.default_male;
+                pbPersonImage.Image = rbMale.Checked ? Properties.Resources.default_male : Properties.Resources.default_female;
         }
-        private void rbFemale_CheckedChanged(object sender)
-        {
-            if (string.IsNullOrEmpty(pbPersonImage.ImageLocation))
-                pbPersonImage.Image = Properties.Resources.default_female;
-        }
+        private void rbMale_CheckedChanged(object sender) => _LoadDefaultImage();
+        private void rbFemale_CheckedChanged(object sender) => _LoadDefaultImage();
 
         private void llSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            try
+            { 
+                if (ImageSelectorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileExtension = Path.GetExtension(ImageSelectorDialog.FileName).ToLower();
+                    if (fileExtension == ".png" || fileExtension == ".jpg" || fileExtension == ".jpeg")
+                    {
+                        pbPersonImage.Load(ImageSelectorDialog.FileName);
+                        llRemoveImage.Visible = true;
+                    }
+                    else
+                        MessageBox.Show("Only PNG, JPG, and JPEG files are allowed.", "Invalid File Type", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("The selected file is not a valid image.\nFile must be in (.jpg), (.jpeg), or (.png) format", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            llRemoveImage.Visible = false;
+            pbPersonImage.ImageLocation = null;
+            _LoadDefaultImage();
         }
     }
 }
