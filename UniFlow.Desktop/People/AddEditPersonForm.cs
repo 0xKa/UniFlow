@@ -257,8 +257,51 @@ namespace UniFlow.Desktop.People
             };
             _HandlePersonImage();
         }
+        private async Task<bool> _SavePersonAsync()
+        {
+            if (_person == null)
+                return false;
 
-        private void btnSave_Click(object sender, EventArgs e)
+            try
+            {
+                var personApi = new PersonApi();
+
+                if (_mode == enMode.AddNew)
+                {
+                    var addedPerson = await personApi.AddAsync(_person);
+                    if (addedPerson != null)
+                    {
+                        MessageBox.Show("Person added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add person. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+                else // Update mode
+                {
+                    bool success = await personApi.UpdateAsync(_person.ID, _person);
+                    if (success)
+                    {
+                        MessageBox.Show("Person updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update person. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!_ValidateForm())
             {
@@ -268,22 +311,11 @@ namespace UniFlow.Desktop.People
 
             _FillPersonObject();
 
-
-            MessageBox.Show("Person Data is ready to be saved.\n\n" +
-                            "You can now save the data by uncommenting the Save method in the code.", 
-                            "Ready to Save", 
-                            MessageBoxButtons.OK, 
-                            MessageBoxIcon.Information);
-
-            //if (_Person.Save())
-            //{
-            //    NewPersonAdded?.Invoke(_Person.ID);
-            //    MessageBox.Show("Person Data Saved Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else
-            //    MessageBox.Show("Error: Person Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //_ChangeFormMode();
+            if (await _SavePersonAsync())
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }
