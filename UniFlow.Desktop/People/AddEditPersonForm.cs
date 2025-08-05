@@ -225,23 +225,24 @@ namespace UniFlow.Desktop.People
 
         private void _HandlePersonImage()
         {
-            if (pbPersonImage.ImageLocation == _person?.ImagePath)
+            if (_person == null)
                 return;
 
-            if (!string.IsNullOrEmpty(_person?.ImagePath) && pbPersonImage.ImageLocation != _person?.ImagePath)
+            if (pbPersonImage.ImageLocation == _person.ImagePath)
+                return;
+
+            if (!string.IsNullOrEmpty(_person.ImagePath) && pbPersonImage.ImageLocation != _person.ImagePath)
             {
-                if (File.Exists(_person?.ImagePath))
+                if (File.Exists(_person.ImagePath))
                     File.Delete(_person.ImagePath); //delete existing image because pb image is changed
             }
 
             if (!string.IsNullOrEmpty(pbPersonImage.ImageLocation))
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                _person.ImagePath = clsUtil.SaveNewImage(pbPersonImage.ImageLocation);
+                _person.ImagePath = Util.SaveNewImage(pbPersonImage.ImageLocation);
             else
                 _person.ImagePath = null;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-
         }
+
         private void _FillPersonObject()
         {
             _person = new PersonDTO
@@ -267,15 +268,22 @@ namespace UniFlow.Desktop.People
 
             _FillPersonObject();
 
-            if (_Person.Save())
-            {
-                NewPersonAdded?.Invoke(_Person.ID);
-                MessageBox.Show("Person Data Saved Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Error: Person Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            _ChangeFormMode();
+            MessageBox.Show("Person Data is ready to be saved.\n\n" +
+                            "You can now save the data by uncommenting the Save method in the code.", 
+                            "Ready to Save", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
+
+            //if (_Person.Save())
+            //{
+            //    NewPersonAdded?.Invoke(_Person.ID);
+            //    MessageBox.Show("Person Data Saved Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //    MessageBox.Show("Error: Person Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //_ChangeFormMode();
         }
     }
 }
