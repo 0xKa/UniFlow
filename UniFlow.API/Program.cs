@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // from appsettings.json
 
-// Register DAL
-builder.Services.AddScoped<IPersonRepository>(provider => new PersonRepository(connectionString ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+// Register DAL - repository can inject IConfiguration
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 // Register BLL
 builder.Services.AddScoped<IPersonService, PersonService>();

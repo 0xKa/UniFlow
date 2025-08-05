@@ -1,5 +1,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using DataAccess.Interfaces;
 using DataAccess.Models;
 
@@ -9,9 +10,11 @@ public class PersonRepository : IPersonRepository
 {
     private readonly string _connectionString;
 
-    public PersonRepository(string connectionString)
+
+    public PersonRepository(IConfiguration configuration)
     {
-        _connectionString = connectionString;
+        _connectionString = configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
     }
 
     private Person ReadPerson(SqlDataReader reader)
