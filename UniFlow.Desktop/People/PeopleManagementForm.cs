@@ -15,25 +15,8 @@ namespace UniFlow.Desktop
         private BindingSource _bindingSource = new BindingSource();
         private static List<PersonViewDTO> _allPeople = new();
 
-        private async Task _RefreshDataAsync()
-        {
-            this.Cursor = Cursors.WaitCursor;
-
-            pnlErrorPanel.Visible = false;
-            notificationBox.Visible = true;
-            _allPeople.Clear();
-
-            await _LoadDGV();
-            _EditDGV();
-            _InitializeSearchOptions();
-
-            this.Cursor = Cursors.Default;
-        }
         private async Task _LoadDGV()
         {
-
-
-            dgvPeople.Columns.Clear();
             dgvPeople.DataSource = _allPeople;
 
             _allPeople = await new PersonApi().GetAllFromViewAsync();
@@ -61,16 +44,34 @@ namespace UniFlow.Desktop
         }
         private void _EditDGV()
         {
-            if (dgvPeople.RowCount > 0)
-            {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                dgvPeople.Columns["FullName"].Width = 200;
-                dgvPeople.Columns["PersonId"].HeaderText = "ID";
-                dgvPeople.Columns["FullName"].HeaderText = "Full Name";
-                dgvPeople.Columns["NationalID"].HeaderText = "National ID";
-                dgvPeople.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
 
-            }
+            dgvPeople.Columns.Clear();
+            dgvPeople.DataSource = _allPeople;
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            dgvPeople.Columns["FullName"].Width = 200;
+            dgvPeople.Columns["PersonId"].HeaderText = "ID";
+            dgvPeople.Columns["FullName"].HeaderText = "Full Name";
+            dgvPeople.Columns["NationalID"].HeaderText = "National ID";
+            dgvPeople.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
+        }
+        private async Task _RefreshDataAsync()
+        {
+
+            btnAddNew.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
+            pnlErrorPanel.Visible = false;
+            notificationBox.Visible = true;
+
+            _allPeople.Clear();
+
+            _EditDGV();
+            await _LoadDGV();
+            _InitializeSearchOptions();
+
+            this.Cursor = Cursors.Default;
+            btnAddNew.Enabled = true;
         }
 
 
