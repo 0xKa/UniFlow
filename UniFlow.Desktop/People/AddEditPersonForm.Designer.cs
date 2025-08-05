@@ -585,6 +585,7 @@
             btnSave.Text = "Save";
             btnSave.ThemeAuthor = "Taiizor";
             btnSave.ThemeName = "MetroDark";
+            btnSave.Click += btnSave_Click;
             // 
             // spaceClose1
             // 
