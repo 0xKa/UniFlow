@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using UniFlow.Desktop.ApiService;
 using UniFlow.DTOs;
 using UniFlow.Shared;
@@ -49,9 +50,11 @@ namespace UniFlow.Desktop.People
         }
         private void _ClearControlsValue()
         {
+            if (_mode == enMode.AddNew)
+                txbNationalID.Text = string.Empty;
+    
             txbFirstName.Text = string.Empty;
             txbLastName.Text = string.Empty;
-            txbNationalID.Text = string.Empty;
             txbPhone.Text = string.Empty;
             txbAddress.Text = string.Empty;
             rbMale.Checked = true;
@@ -255,7 +258,7 @@ namespace UniFlow.Desktop.People
                     string? newImagePath = Util.SaveNewImage(currentImageLocation);
                     if (string.IsNullOrEmpty(newImagePath))
                     {
-                        // Failed to save new image, keep existing
+                        MessageBox.Show($"Failed to save old image.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     _person.ImagePath = newImagePath;
@@ -272,13 +275,13 @@ namespace UniFlow.Desktop.People
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Failed to delete old image: {ex.Message}");
+                        MessageBox.Show($"Failed to delete old image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to handle person image: {ex.Message}");
+                MessageBox.Show($"Failed to handle person image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -313,6 +316,7 @@ namespace UniFlow.Desktop.People
                     if (addedPerson != null)
                     {
                         MessageBox.Show("Person added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _person = addedPerson; // Update the local _person with the added person details (like id)
                         OnPersonAdded?.Invoke(addedPerson);
                         return true;
                     }
@@ -344,6 +348,17 @@ namespace UniFlow.Desktop.People
                 return false;
             }
         }
+        private void _ChangeFormMode()
+        {
+            _mode = enMode.Update;
+            pbModeIcon.Image = Properties.Resources.edit;
+            
+            spaceForm.Text = "Update Person";
+            this.Text = "Update Person";
+            
+            lblPersonID.Text = _person?.ID.ToString();
+            txbNationalID.Enabled = false;
+        }
         private async void btnSave_Click(object sender, EventArgs e)
         {
             if (!_ValidateForm())
@@ -356,8 +371,9 @@ namespace UniFlow.Desktop.People
 
             if (await _SavePersonAsync())
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                _ChangeFormMode();
+                //this.DialogResult = DialogResult.OK;
+                //this.Close();
             }
         }
     }

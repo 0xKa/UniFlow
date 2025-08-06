@@ -196,6 +196,7 @@
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(180, 22);
             deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // addNewPersonToolStripMenuItem
             // 
@@ -203,6 +204,7 @@
             addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
             addNewPersonToolStripMenuItem.Size = new Size(180, 22);
             addNewPersonToolStripMenuItem.Text = "Add New Person";
+            addNewPersonToolStripMenuItem.Click += addNewPersonToolStripMenuItem_Click;
             // 
             // toolStripMenuItem2
             // 

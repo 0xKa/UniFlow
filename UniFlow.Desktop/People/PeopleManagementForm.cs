@@ -166,42 +166,66 @@ namespace UniFlow.Desktop
             lblTotalRecords.Text = _allPeople.Count.ToString();
         }
 
-        private void btnAddNew_Click(object sender, EventArgs e)
-        {
-            AddEditPersonForm frm = new(-1, Shared.Util.enMode.AddNew);
-            frm.FormClosed += async (s, args) => await _RefreshDataAsync();
-            frm.ShowDialog();
-        }
-
-
-        private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            metroContextMenuStrip1.Close();
-            MessageBox.Show("This will show the info of the selected person.\n\n" +
-                            "You can add, edit, delete, and search for people.\n\n" +
-                            "Developed by me.",
-                            "Information",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-        }
         private async void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             metroContextMenuStrip1.Close();
             await _RefreshDataAsync();
         }
 
+        private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroContextMenuStrip1.Close();
+            MessageBox.Show("This will show the info of the selected person.\n\n" +
+                            "Developed by me.",
+                            "Information",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            AddEditPersonForm frm = new(-1, Shared.Util.enMode.AddNew);
+            frm.OnPersonAdded += async (personDTO) => await _RefreshDataAsync();
+            frm.OnPersonUpdated += async (personDTO) => await _RefreshDataAsync();
+            frm.ShowDialog();
+        }
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e) => btnAddNew.PerformClick();
+
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
             {
                 AddEditPersonForm frm = new(personId, Shared.Util.enMode.Update);
-                frm.FormClosed += async (s, args) => await _RefreshDataAsync();
+                frm.OnPersonUpdated += async (personDTO) => await _RefreshDataAsync();
                 frm.ShowDialog();
             }
             else
             {
                 MessageBox.Show("No person is selected or the selected row is invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroContextMenuStrip1.Close();
+            if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
+            {
+                if (MessageBox.Show($"Are you sure you want to delete the person with ID: {personId}?",
+                    "Delete Person",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (await new PersonApi().DeleteAsync(personId))
+                    {
+                        await _RefreshDataAsync();
+                        MessageBox.Show($"Person with ID: {personId} has been deleted successfully.", "Delete Person", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show($"This Person Cannot be Deleted. ", "Delete Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
         }
     }
 }
