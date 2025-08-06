@@ -231,34 +231,71 @@ namespace UniFlow.Desktop.People
             if (_person == null)
                 return;
 
-            if (pbPersonImage.ImageLocation == _person.ImagePath)
+            string? currentImageLocation = pbPersonImage.ImageLocation;
+            string? existingImagePath = _person.ImagePath;
+
+            // If no change in image, do nothing
+            if (string.Equals(currentImageLocation, existingImagePath, StringComparison.OrdinalIgnoreCase))
                 return;
 
-            if (!string.IsNullOrEmpty(_person.ImagePath) && pbPersonImage.ImageLocation != _person.ImagePath)
+            string? oldImagePathToDelete = null;
+
+            // Prepare for cleanup only if we're changing from an existing image
+            if (!string.IsNullOrEmpty(existingImagePath) &&
+                !string.Equals(currentImageLocation, existingImagePath, StringComparison.OrdinalIgnoreCase))
             {
-                if (File.Exists(_person.ImagePath))
-                    File.Delete(_person.ImagePath); //delete existing image because pb image is changed
+                oldImagePathToDelete = existingImagePath;
             }
 
-            if (!string.IsNullOrEmpty(pbPersonImage.ImageLocation))
-                _person.ImagePath = Util.SaveNewImage(pbPersonImage.ImageLocation);
-            else
-                _person.ImagePath = null;
+            try
+            {
+                // Handle new image
+                if (!string.IsNullOrEmpty(currentImageLocation))
+                {
+                    string? newImagePath = Util.SaveNewImage(currentImageLocation);
+                    if (string.IsNullOrEmpty(newImagePath))
+                    {
+                        // Failed to save new image, keep existing
+                        return;
+                    }
+                    _person.ImagePath = newImagePath;
+                }
+                else
+                    _person.ImagePath = null;
+
+                // Only delete old image after successful save/update
+                if (!string.IsNullOrEmpty(oldImagePathToDelete) && File.Exists(oldImagePathToDelete))
+                {
+                    try
+                    {
+                        File.Delete(oldImagePathToDelete);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to delete old image: {ex.Message}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to handle person image: {ex.Message}");
+            }
         }
 
         private void _FillPersonObject()
         {
-            _person = new PersonDTO
-            {
-                ID = _mode == enMode.Update ? int.Parse(lblPersonID.Text) : 0, // set ID only in update mode
-                FirstName = txbFirstName.Text,
-                LastName = txbLastName.Text,
-                NationalID = txbNationalID.Text,
-                DateOfBirth = dtpDateOfBirth.Value,
-                Gender = rbMale.Checked ? 'M' : 'F',
-                Phone = txbPhone.Text,
-                Address = txbAddress.Text
-            };
+            if (_person == null)
+                return;
+
+            _person.ID = _mode == enMode.Update ? int.Parse(lblPersonID.Text) : 0; // set ID only in update mode
+            _person.FirstName = txbFirstName.Text;
+            _person.LastName = txbLastName.Text;
+            _person.NationalID = txbNationalID.Text;
+            _person.DateOfBirth = dtpDateOfBirth.Value;
+            _person.Gender = rbMale.Checked ? 'M' : 'F';
+            _person.Phone = txbPhone.Text;
+            _person.Address = txbAddress.Text;
+
             _HandlePersonImage();
         }
         private async Task<bool> _SavePersonAsync()
