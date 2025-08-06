@@ -229,7 +229,7 @@
             llSetImage.Location = new Point(712, 171);
             llSetImage.Name = "llSetImage";
             llSetImage.Size = new Size(70, 15);
-            llSetImage.TabIndex = 36;
+            llSetImage.TabIndex = 16;
             llSetImage.TabStop = true;
             llSetImage.Text = "Set Image";
             llSetImage.VisitedLinkColor = Color.FromArgb(45, 157, 205);
@@ -257,7 +257,7 @@
             txbAddress.Size = new Size(515, 68);
             txbAddress.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             txbAddress.StyleManager = null;
-            txbAddress.TabIndex = 33;
+            txbAddress.TabIndex = 14;
             txbAddress.TextAlign = HorizontalAlignment.Left;
             txbAddress.ThemeAuthor = "Taiizor";
             txbAddress.ThemeName = "MetroDark";
@@ -275,7 +275,7 @@
             dtpDateOfBirth.MinimumSize = new Size(0, 27);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(251, 27);
-            dtpDateOfBirth.TabIndex = 31;
+            dtpDateOfBirth.TabIndex = 15;
             dtpDateOfBirth.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             dtpDateOfBirth.UseCustomFont = true;
             dtpDateOfBirth.Value = new DateTime(2010, 12, 31, 0, 0, 0, 0);
@@ -358,7 +358,7 @@
             txbLastName.Size = new Size(251, 28);
             txbLastName.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             txbLastName.StyleManager = null;
-            txbLastName.TabIndex = 14;
+            txbLastName.TabIndex = 12;
             txbLastName.TextAlign = HorizontalAlignment.Left;
             txbLastName.ThemeAuthor = "Taiizor";
             txbLastName.ThemeName = "MetroDark";
@@ -581,7 +581,7 @@
             btnSave.Size = new Size(196, 44);
             btnSave.Style = ReaLTaiizor.Enum.Metro.Style.Dark;
             btnSave.StyleManager = null;
-            btnSave.TabIndex = 30;
+            btnSave.TabIndex = 17;
             btnSave.Text = "Save";
             btnSave.ThemeAuthor = "Taiizor";
             btnSave.ThemeName = "MetroDark";

@@ -19,7 +19,10 @@ namespace UniFlow.Desktop.People
         private PersonDTO? _person;
         
         private Util.enMode _mode = Util.enMode.AddNew;
-        private ErrorProvider _errorProvider;
+        private ErrorProvider _errorProvider = new();
+
+        public event Action<PersonDTO>? OnPersonAdded;
+        public event Action<PersonDTO>? OnPersonUpdated;
 
 
         public AddEditPersonForm(int personID, Util.enMode mode)
@@ -28,9 +31,7 @@ namespace UniFlow.Desktop.People
 
             _mode = mode;
             
-            _errorProvider = new ErrorProvider();
-            _errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-
+            
             _SetDefaultValues();
             if (_mode == Util.enMode.Update)
                 _LoadPersonAsync(personID);
@@ -59,6 +60,8 @@ namespace UniFlow.Desktop.People
         }
         private void _SetDefaultValues()
         {
+            _errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
             dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
             dtpDateOfBirth.MinDate = DateTime.Now.AddYears(-100);
             dtpDateOfBirth.Value = dtpDateOfBirth.MaxDate;
@@ -166,9 +169,9 @@ namespace UniFlow.Desktop.People
                 _errorProvider.SetError(txbFirstName, "First name must be between 2 and 50 characters.");
                 isValid = false;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(txbFirstName.Text, @"^[a-zA-Z\s]+$"))
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txbFirstName.Text, @"^[a-zA-Z\s\-]+$"))
             {
-                _errorProvider.SetError(txbFirstName, "First name can only contain letters and spaces.");
+                _errorProvider.SetError(txbFirstName, "First name can only contain letters, spaces, and dashes.");
                 isValid = false;
             }
 
@@ -183,9 +186,9 @@ namespace UniFlow.Desktop.People
                 _errorProvider.SetError(txbLastName, "Last name must be between 2 and 50 characters.");
                 isValid = false;
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(txbLastName.Text, @"^[a-zA-Z\s]+$"))
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txbLastName.Text, @"^[a-zA-Z\s\-]+$"))
             {
-                _errorProvider.SetError(txbLastName, "Last name can only contain letters and spaces.");
+                _errorProvider.SetError(txbLastName, "Last name can only contain letters and spaces, and dashes.");
                 isValid = false;
             }
 
@@ -247,6 +250,7 @@ namespace UniFlow.Desktop.People
         {
             _person = new PersonDTO
             {
+                ID = _mode == enMode.Update ? int.Parse(lblPersonID.Text) : 0, // set ID only in update mode
                 FirstName = txbFirstName.Text,
                 LastName = txbLastName.Text,
                 NationalID = txbNationalID.Text,
@@ -272,6 +276,7 @@ namespace UniFlow.Desktop.People
                     if (addedPerson != null)
                     {
                         MessageBox.Show("Person added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OnPersonAdded?.Invoke(addedPerson);
                         return true;
                     }
                     else
@@ -286,6 +291,7 @@ namespace UniFlow.Desktop.People
                     if (success)
                     {
                         MessageBox.Show("Person updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        OnPersonUpdated?.Invoke(_person);
                         return true;
                     }
                     else
