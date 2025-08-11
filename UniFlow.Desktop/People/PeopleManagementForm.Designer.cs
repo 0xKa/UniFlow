@@ -217,6 +217,7 @@
             sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
             sendEmailToolStripMenuItem.Size = new Size(180, 22);
             sendEmailToolStripMenuItem.Text = "Send Email";
+            sendEmailToolStripMenuItem.Click += sendEmailToolStripMenuItem_Click;
             // 
             // sendMessageToolStripMenuItem
             // 
@@ -224,6 +225,7 @@
             sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
             sendMessageToolStripMenuItem.Size = new Size(180, 22);
             sendMessageToolStripMenuItem.Text = "Send Message";
+            sendMessageToolStripMenuItem.Click += sendMessageToolStripMenuItem_Click;
             // 
             // toolStripMenuItem3
             // 

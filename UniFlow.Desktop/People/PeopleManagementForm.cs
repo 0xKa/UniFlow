@@ -227,5 +227,17 @@ namespace UniFlow.Desktop
             }
 
         }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroContextMenuStrip1.Close();
+            MessageBox.Show("This feature is not implemented yet.", "Send Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void sendMessageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            metroContextMenuStrip1.Close();
+            MessageBox.Show("This feature is not implemented yet.", "Send Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 }

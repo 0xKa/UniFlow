@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -290,9 +291,9 @@ namespace UniFlow.Desktop.People
             if (_person == null)
                 return;
 
-            _person.ID = _mode == enMode.Update ? int.Parse(lblPersonID.Text) : 0; // set ID only in update mode
-            _person.FirstName = txbFirstName.Text;
-            _person.LastName = txbLastName.Text;
+            _person.ID = _mode == enMode.Update ? int.Parse(lblPersonID.Text) : 0; // set ID only in update 
+            _person.FirstName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txbFirstName.Text.ToLower()); // first letter capitalized
+            _person.LastName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txbLastName.Text.ToLower());
             _person.NationalID = txbNationalID.Text;
             _person.DateOfBirth = dtpDateOfBirth.Value;
             _person.Gender = rbMale.Checked ? 'M' : 'F';

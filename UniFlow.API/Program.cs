@@ -5,11 +5,10 @@ using BusinessLogic.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // from appsettings.json
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // from appsettings.json
 
 // Register DAL - repository can inject IConfiguration
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-
 // Register BLL
 builder.Services.AddScoped<IPersonService, PersonService>();
 
