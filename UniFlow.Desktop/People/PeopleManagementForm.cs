@@ -175,11 +175,17 @@ namespace UniFlow.Desktop
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             metroContextMenuStrip1.Close();
-            MessageBox.Show("This will show the info of the selected person.\n\n" +
-                            "Developed by me.",
-                            "Information",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+
+            if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
+            {
+                PersonInfoForm frm = new();
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No person is selected or the selected row is invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
@@ -193,6 +199,8 @@ namespace UniFlow.Desktop
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            metroContextMenuStrip1.Close();
+
             if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
             {
                 AddEditPersonForm frm = new(personId, Shared.Util.enMode.Update);

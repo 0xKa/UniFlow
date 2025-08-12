@@ -32,10 +32,12 @@
             // 
             // PersonCardControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(25, 25, 25);
+            Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "PersonCardControl";
-            Size = new Size(705, 288);
+            Size = new Size(650, 300);
             ResumeLayout(false);
         }
 
