@@ -51,21 +51,22 @@
             spaceForm1.NoRounding = true;
             spaceForm1.Padding = new Padding(5, 25, 5, 5);
             spaceForm1.Sizable = false;
-            spaceForm1.Size = new Size(703, 371);
+            spaceForm1.Size = new Size(650, 320);
             spaceForm1.SmartBounds = true;
             spaceForm1.StartPosition = FormStartPosition.CenterParent;
             spaceForm1.TabIndex = 0;
-            spaceForm1.Text = "spaceForm1";
+            spaceForm1.Text = "Person Information";
             spaceForm1.TransparencyKey = Color.Purple;
             spaceForm1.Transparent = false;
             // 
             // personCardControl1
             // 
             personCardControl1.BackColor = Color.FromArgb(25, 25, 25);
+            personCardControl1.Dock = DockStyle.Fill;
             personCardControl1.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            personCardControl1.Location = new Point(12, 45);
+            personCardControl1.Location = new Point(5, 25);
             personCardControl1.Name = "personCardControl1";
-            personCardControl1.Size = new Size(650, 300);
+            personCardControl1.Size = new Size(640, 290);
             personCardControl1.TabIndex = 1;
             // 
             // spaceClose1
@@ -76,7 +77,7 @@
             spaceClose1.DefaultLocation = true;
             spaceClose1.Font = new Font("Verdana", 8F);
             spaceClose1.Image = null;
-            spaceClose1.Location = new Point(677, 3);
+            spaceClose1.Location = new Point(624, 3);
             spaceClose1.Name = "spaceClose1";
             spaceClose1.NoRounding = false;
             spaceClose1.Size = new Size(23, 21);
@@ -88,15 +89,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(703, 371);
+            ClientSize = new Size(650, 320);
             Controls.Add(spaceForm1);
             FormBorderStyle = FormBorderStyle.None;
+            MinimumSize = new Size(200, 25);
             Name = "PersonInfoForm";
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "PersonInfoForm";
             TransparencyKey = Color.Purple;
+            Load += PersonInfoForm_Load;
             spaceForm1.ResumeLayout(false);
             ResumeLayout(false);
         }

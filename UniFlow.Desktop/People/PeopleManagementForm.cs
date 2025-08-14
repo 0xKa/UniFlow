@@ -178,9 +178,8 @@ namespace UniFlow.Desktop
 
             if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
             {
-                PersonInfoForm frm = new();
+                PersonInfoForm frm = new(personId);
                 frm.ShowDialog();
-
             }
             else
             {
