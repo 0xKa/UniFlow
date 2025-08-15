@@ -33,10 +33,13 @@ namespace UniFlow.Desktop
             frm.Show();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e) 
+        private void AppForm_Load(object sender, EventArgs e)
             => _LoadForm(new DashboardForm(), Properties.Resources.dashboard);
-        private void btnPeople_Click(object sender, EventArgs e) 
+        private void btnDashboard_Click(object sender, EventArgs e)
+            => _LoadForm(new DashboardForm(), Properties.Resources.dashboard);
+        private void btnPeople_Click(object sender, EventArgs e)
             => _LoadForm(new PeopleManagementForm(), Properties.Resources.people);
-    
+
+        
     }
 }

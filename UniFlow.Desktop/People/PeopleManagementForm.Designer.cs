@@ -151,6 +151,7 @@
             dgvPeople.ScrollBars = ScrollBars.Vertical;
             dgvPeople.Size = new Size(916, 457);
             dgvPeople.TabIndex = 19;
+            dgvPeople.DoubleClick += dgvPeople_DoubleClick;
             // 
             // Column1
             // 

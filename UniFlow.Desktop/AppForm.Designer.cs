@@ -298,7 +298,7 @@
             button5.Text = "...";
             button5.UseVisualStyleBackColor = true;
             // 
-            // frmApp
+            // AppForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -312,9 +312,10 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(1366, 768);
             MinimumSize = new Size(190, 40);
-            Name = "frmApp";
+            Name = "AppForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UniFlow";
+            Load += AppForm_Load;
             titleBar.ResumeLayout(false);
             pnlSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbMainIcon).EndInit();

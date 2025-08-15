@@ -1,0 +1,10 @@
+User Tabel:
+usp_GetAllUsers: Returns all users with joined person and role information
+usp_GetUserById: Gets a specific user by ID
+usp_GetUserByUsername: Gets a user by username (useful for login)
+usp_AddUser: Creates a new user (automatically sets account_created timestamp)
+usp_UpdateUser: Updates user information (excluding password)
+usp_UpdateUserPassword: Specifically updates user password
+usp_UpdateUserLastLogin: Updates the last login timestamp
+usp_SetUserActiveStatus: Activates or deactivates a user account
+usp_DeleteUser: Removes a user from the system

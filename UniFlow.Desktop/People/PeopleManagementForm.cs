@@ -186,6 +186,7 @@ namespace UniFlow.Desktop
                 MessageBox.Show("No person is selected or the selected row is invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void dgvPeople_DoubleClick(object sender, EventArgs e) => showInfoToolStripMenuItem.PerformClick();
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
@@ -246,5 +247,7 @@ namespace UniFlow.Desktop
             MessageBox.Show("This feature is not implemented yet.", "Send Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        
     }
 }

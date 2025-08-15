@@ -1,6 +1,16 @@
 USE UniFlow;
 GO
 
+--- Testing ---
+
+select * from roles;
+select * from users
+
+
+
+--- ---
+GO
+
 -- 1. People table
 SELECT 
     person_id AS 'ID',
