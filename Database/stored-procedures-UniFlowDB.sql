@@ -117,10 +117,6 @@ BEGIN
 END;
 GO
 
-EXEC usp_GetAllUsers;
-go
-
-
 -- 6. Get all users
 CREATE OR ALTER PROCEDURE usp_GetAllUsers
 AS

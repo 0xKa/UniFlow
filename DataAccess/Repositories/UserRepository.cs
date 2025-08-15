@@ -227,6 +227,60 @@ public class UserRepository : IUserRepository
         }
     }
 
+    public async Task<IEnumerable<UserView>> GetAllUsersViewAsync()
+    {
+        var users = new List<UserView>();
+
+        using var connection = new SqlConnection(_connectionString);
+        using var command = new SqlCommand("SELECT * FROM vw_Users ORDER BY FullName", connection);
+
+        await connection.OpenAsync();
+        using var reader = await command.ExecuteReaderAsync();
+
+        while (await reader.ReadAsync())
+        {
+            users.Add(MapUserViewFromReader(reader));
+        }
+
+        return users;
+    }
+
+    public async Task<UserView?> GetUserViewByIdAsync(int userId)
+    {
+        using var connection = new SqlConnection(_connectionString);
+        using var command = new SqlCommand("SELECT * FROM vw_Users WHERE user_id = @UserId", connection);
+
+        command.Parameters.AddWithValue("@UserId", userId);
+
+        await connection.OpenAsync();
+        using var reader = await command.ExecuteReaderAsync();
+
+        if (await reader.ReadAsync())
+        {
+            return MapUserViewFromReader(reader);
+        }
+
+        return null;
+    }
+
+    public async Task<UserView?> GetUserViewByUsernameAsync(string username)
+    {
+        using var connection = new SqlConnection(_connectionString);
+        using var command = new SqlCommand("SELECT * FROM vw_Users WHERE username = @Username", connection);
+
+        command.Parameters.AddWithValue("@Username", username);
+
+        await connection.OpenAsync();
+        using var reader = await command.ExecuteReaderAsync();
+
+        if (await reader.ReadAsync())
+        {
+            return MapUserViewFromReader(reader);
+        }
+
+        return null;
+    }
+
     private static User MapUserFromReader(SqlDataReader reader)
     {
         return new User
@@ -236,6 +290,23 @@ public class UserRepository : IUserRepository
             RoleId = reader.GetInt32("role_id"),
             Username = reader.GetString("username"),
             PasswordHash = reader.GetString("password_hash"),
+            Email = reader.GetString("email"),
+            IsActive = reader.GetBoolean("is_active"),
+            LastLogin = reader.IsDBNull("last_login") ? null : reader.GetDateTime("last_login"),
+            AccountCreated = reader.GetDateTime("account_created")
+        };
+    }
+
+    private static UserView MapUserViewFromReader(SqlDataReader reader)
+    {
+        return new UserView
+        {
+            UserId = reader.GetInt32("user_id"),
+            Username = reader.GetString("username"),
+            PersonId = reader.GetInt32("person_id"),
+            FullName = reader.GetString("FullName"),
+            RoleId = reader.GetInt32("role_id"),
+            RoleName = reader.GetString("role_name"),
             Email = reader.GetString("email"),
             IsActive = reader.GetBoolean("is_active"),
             LastLogin = reader.IsDBNull("last_login") ? null : reader.GetDateTime("last_login"),

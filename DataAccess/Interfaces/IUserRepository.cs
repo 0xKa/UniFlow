@@ -13,4 +13,9 @@ public interface IUserRepository
     Task<bool> UpdateUserLastLoginAsync(int userId);
     Task<bool> SetUserActiveStatusAsync(int userId, bool isActive);
     Task<bool> DeleteUserAsync(int userId);
+
+    // View methods
+    Task<IEnumerable<UserView>> GetAllUsersViewAsync();
+    Task<UserView?> GetUserViewByIdAsync(int userId);
+    Task<UserView?> GetUserViewByUsernameAsync(string username);
 }

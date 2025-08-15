@@ -26,3 +26,25 @@ GO
 
 select * from vw_people;
 go
+
+
+-- User View
+CREATE OR ALTER VIEW vw_Users
+AS
+SELECT 
+    u.user_id,
+    u.person_id,
+	p.FullName,
+    u.role_id,
+	r.role_name,
+    u.username,
+    u.email,
+    u.is_active,
+    u.last_login,
+    u.account_created
+FROM users u
+    INNER JOIN vw_people p ON u.person_id = p.PersonID
+    INNER JOIN roles r ON u.role_id = r.role_id;
+GO
+
+SELECT * FROM vw_Users;
