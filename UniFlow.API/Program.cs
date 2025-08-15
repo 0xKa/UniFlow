@@ -9,8 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Register DAL - repository can inject IConfiguration
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 // Register BLL
 builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 // Add services to the container.

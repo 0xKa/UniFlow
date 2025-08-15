@@ -33,11 +33,11 @@ CREATE OR ALTER VIEW vw_Users
 AS
 SELECT 
     u.user_id,
+    u.username,
     u.person_id,
 	p.FullName,
     u.role_id,
 	r.role_name,
-    u.username,
     u.email,
     u.is_active,
     u.last_login,
