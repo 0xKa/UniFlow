@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UniFlow.Desktop.Users;
 
 namespace UniFlow.Desktop
 {
@@ -40,6 +41,9 @@ namespace UniFlow.Desktop
         private void btnPeople_Click(object sender, EventArgs e)
             => _LoadForm(new PeopleManagementForm(), Properties.Resources.people);
 
-        
+        private void btnUsers_Click(object sender, EventArgs e)
+            => _LoadForm(new UsersManagementForm(), Properties.Resources.user);
+    
+    
     }
 }
