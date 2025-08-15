@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
-using UniFlow.DTOs;
+using UniFlow.Shared;
+using UniFlow.Shared.DTOs;
 
 namespace UniFlow.Desktop.ApiService;
 
@@ -12,7 +13,7 @@ public class PersonApi
     {
         _http = new HttpClient
         {
-            BaseAddress = new Uri("https://localhost:7290/"),
+            BaseAddress = new Uri(Global.BaseAddress),
             Timeout = TimeSpan.FromSeconds(5) 
 
         };

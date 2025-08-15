@@ -1,4 +1,4 @@
-using UniFlow.Shared.DTOs.User;
+using UniFlow.Shared.DTOs;
 
 namespace BusinessLogic.Interfaces;
 

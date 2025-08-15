@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BusinessLogic.Interfaces;
-using UniFlow.Shared.DTOs.User;
+using UniFlow.Shared.DTOs;
 
 namespace UniFlow.API.Controllers;
 

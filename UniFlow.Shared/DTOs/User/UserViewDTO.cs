@@ -1,4 +1,4 @@
-namespace UniFlow.Shared.DTOs.User;
+namespace UniFlow.Shared.DTOs;
 
 public class UserViewDTO
 {

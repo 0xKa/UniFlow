@@ -1,5 +1,5 @@
 using DataAccess.Models;
-using UniFlow.DTOs;
+using UniFlow.Shared.DTOs;
 namespace BusinessLogic.Helpers;
 
 public static class PersonMapper

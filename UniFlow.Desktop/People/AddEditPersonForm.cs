@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using UniFlow.Desktop.ApiService;
-using UniFlow.DTOs;
+using UniFlow.Shared.DTOs;
 using UniFlow.Shared;
 using static UniFlow.Shared.Util;
 
@@ -19,7 +19,7 @@ namespace UniFlow.Desktop.People
     public partial class AddEditPersonForm : Form
     {
         private PersonDTO? _person;
-        
+
         private Util.enMode _mode = Util.enMode.AddNew;
         private ErrorProvider _errorProvider = new();
 
@@ -32,8 +32,8 @@ namespace UniFlow.Desktop.People
             InitializeComponent();
 
             _mode = mode;
-            
-            
+
+
             _SetDefaultValues();
             if (_mode == Util.enMode.Update)
                 _LoadPersonAsync(personID);
@@ -53,7 +53,7 @@ namespace UniFlow.Desktop.People
         {
             if (_mode == enMode.AddNew)
                 txbNationalID.Text = string.Empty;
-    
+
             txbFirstName.Text = string.Empty;
             txbLastName.Text = string.Empty;
             txbPhone.Text = string.Empty;
@@ -156,7 +156,7 @@ namespace UniFlow.Desktop.People
             _LoadDefaultImage();
         }
 
-        
+
         private bool _ValidateForm()
         {
             bool isValid = true;
@@ -353,10 +353,10 @@ namespace UniFlow.Desktop.People
         {
             _mode = enMode.Update;
             pbModeIcon.Image = Properties.Resources.edit;
-            
+
             spaceForm.Text = "Update Person";
             this.Text = "Update Person";
-            
+
             lblPersonID.Text = _person?.ID.ToString();
             txbNationalID.Enabled = false;
         }

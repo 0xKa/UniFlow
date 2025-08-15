@@ -1,5 +1,5 @@
 using DataAccess.Models;
-using UniFlow.Shared.DTOs.User;
+using UniFlow.Shared.DTOs;
 
 namespace BusinessLogic.Helpers;
 

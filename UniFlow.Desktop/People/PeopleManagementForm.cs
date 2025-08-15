@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using UniFlow.Desktop.ApiService;
 using UniFlow.Desktop.People;
-using UniFlow.DTOs;
+using UniFlow.Shared.DTOs;
 
 namespace UniFlow.Desktop
 {
@@ -248,6 +248,6 @@ namespace UniFlow.Desktop
 
         }
 
-        
+
     }
 }

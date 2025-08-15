@@ -1,7 +1,7 @@
 using BusinessLogic.Interfaces;
 using BusinessLogic.Helpers;
 using DataAccess.Interfaces;
-using UniFlow.Shared.DTOs.User;
+using UniFlow.Shared.DTOs;
 
 namespace BusinessLogic.Services;
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UniFlow.DTOs;
+using UniFlow.Shared.DTOs;
 
 namespace UniFlow.Desktop.People
 {
@@ -17,7 +17,7 @@ namespace UniFlow.Desktop.People
         {
             InitializeComponent();
         }
-        
+
         public PersonDTO SelectedPerson = new();
 
 

@@ -1,4 +1,4 @@
-namespace UniFlow.DTOs;
+namespace UniFlow.Shared.DTOs;
 
 public class PersonViewDTO
 {
