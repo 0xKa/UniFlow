@@ -117,28 +117,26 @@ BEGIN
 END;
 GO
 
+EXEC usp_GetAllUsers;
+go
+
 
 -- 6. Get all users
 CREATE OR ALTER PROCEDURE usp_GetAllUsers
 AS
 BEGIN
     SELECT 
-        u.user_id,
-        u.person_id,
-        u.role_id,
-        u.username,
-        u.password_hash,
-        u.email,
-        u.is_active,
-        u.last_login,
-        u.account_created,
-        p.first_name,
-        p.last_name,
-        r.role_name
-    FROM users u
-    JOIN people p ON u.person_id = p.person_id
-    JOIN roles r ON u.role_id = r.role_id
-    ORDER BY u.username;
+        user_id,
+        person_id,
+        role_id,
+        username,
+        password_hash,
+        email,
+        is_active,
+        last_login,
+        account_created
+    FROM users
+    ORDER BY username;
 END;
 GO
 
@@ -148,22 +146,17 @@ CREATE OR ALTER PROCEDURE usp_GetUserById
 AS
 BEGIN
     SELECT 
-        u.user_id,
-        u.person_id,
-        u.role_id,
-        u.username,
-        u.password_hash,
-        u.email,
-        u.is_active,
-        u.last_login,
-        u.account_created,
-        p.first_name,
-        p.last_name,
-        r.role_name
-    FROM users u
-    JOIN people p ON u.person_id = p.person_id
-    JOIN roles r ON u.role_id = r.role_id
-    WHERE u.user_id = @UserId;
+        user_id,
+        person_id,
+        role_id,
+        username,
+        password_hash,
+        email,
+        is_active,
+        last_login,
+        account_created
+    FROM users
+    WHERE user_id = @UserId;
 END;
 GO
 
@@ -173,22 +166,17 @@ CREATE OR ALTER PROCEDURE usp_GetUserByUsername
 AS
 BEGIN
     SELECT 
-        u.user_id,
-        u.person_id,
-        u.role_id,
-        u.username,
-        u.password_hash,
-        u.email,
-        u.is_active,
-        u.last_login,
-        u.account_created,
-        p.first_name,
-        p.last_name,
-        r.role_name
-    FROM users u
-    JOIN people p ON u.person_id = p.person_id
-    JOIN roles r ON u.role_id = r.role_id
-    WHERE u.username = @Username;
+        user_id,
+        person_id,
+        role_id,
+        username,
+        password_hash,
+        email,
+        is_active,
+        last_login,
+        account_created
+    FROM users
+    WHERE username = @Username;
 END;
 GO
 

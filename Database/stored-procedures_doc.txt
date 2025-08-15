@@ -1,0 +1,19 @@
+People Table:
+1. usp_GetAllPeople: Returns all people records
+2. usp_GetPersonById: Gets a specific person by ID
+3. usp_AddPerson: Creates a new person record and returns the new person ID
+4. usp_UpdatePerson: Updates person information
+5. usp_DeletePerson: Removes a person from the system
+
+User Table:
+1. usp_GetAllUsers: Returns all users with joined person and role information
+2. usp_GetUserById: Gets a specific user by ID
+3. usp_GetUserByUsername: Gets a user by username (useful for login)
+4. usp_AddUser: Creates a new user (automatically sets account_created timestamp)
+5. usp_UpdateUser: Updates user information (excluding password)
+6. usp_UpdateUserPassword: Specifically updates user password
+7. usp_UpdateUserLastLogin: Updates the last login timestamp
+8. usp_SetUserActiveStatus: Activates or deactivates a user account
+9. usp_DeleteUser: Removes a user from the
+
+
