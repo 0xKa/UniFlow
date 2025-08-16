@@ -374,6 +374,7 @@
             dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvUsers.ColumnHeadersHeight = 27;
             dgvUsers.Columns.AddRange(new DataGridViewColumn[] { Column1 });
+            dgvUsers.ContextMenuStrip = metroContextMenuStrip1;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);

@@ -27,19 +27,41 @@ namespace UniFlow.Desktop.People
         public event Action<PersonDTO>? OnPersonUpdated;
 
 
-        public AddEditPersonForm(int personID, Util.enMode mode)
+        // Shared private constructor logic
+        private AddEditPersonForm(Util.enMode mode)
         {
             InitializeComponent();
-
             _mode = mode;
-
-
             _SetDefaultValues();
+        }
+
+        // Constructor that takes Person ID
+        public AddEditPersonForm(int personID, Util.enMode mode) : this(mode)
+        {
+            this.Load += async (s, e) =>
+            {
+                if (_mode == Util.enMode.Update)
+                    _person = await new PersonApi().GetByIdAsync(personID);
+                else
+                    _person = new PersonDTO();
+
+                _FillPersonInfo();
+            };
+        }
+
+        // Constructor that takes PersonDTO
+        public AddEditPersonForm(PersonDTO personDto, Util.enMode mode) : this(mode)
+        {
             if (_mode == Util.enMode.Update)
-                _LoadPersonAsync(personID);
+            {
+                _person = personDto;
+                _FillPersonInfo();
+            }
             else
                 _person = new PersonDTO();
         }
+
+        
 
         private void _ClearValidationErrors()
         {
@@ -87,9 +109,9 @@ namespace UniFlow.Desktop.People
             _ClearControlsValue();
         }
 
-        private async void _LoadPersonAsync(int personID)
+        private void _FillPersonInfo()
         {
-            _person = await new PersonApi().GetByIdAsync(personID);
+            
             if (_person != null)
             {
                 lblPersonID.Text = _person.ID.ToString();
@@ -102,9 +124,15 @@ namespace UniFlow.Desktop.People
 
                 //handle gender
                 if (_person.Gender == 'M')
+                {
                     rbMale.Checked = true;
+                    rbFemale.Checked = false;
+                }
                 else
+                {
                     rbFemale.Checked = true;
+                    rbMale.Checked = false;
+                }
 
                 //handle image
                 if (string.IsNullOrEmpty(_person.ImagePath))
@@ -115,7 +143,7 @@ namespace UniFlow.Desktop.People
                 txbNationalID.Enabled = false;
             }
             else
-                MessageBox.Show($"Person with ID {personID} not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Person not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnClear_Click(object sender, EventArgs e) => _ClearControlsValue();

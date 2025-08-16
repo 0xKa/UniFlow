@@ -56,6 +56,12 @@ namespace UniFlow.Desktop.People
         {
             set { llEditPersonInfo.Enabled = value; }
         }
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddEditPersonForm frm = new AddEditPersonForm(SelectedPerson, Shared.Util.enMode.Update);
+            frm.FormClosed += (s, args) => _FillCard();
+            frm.ShowDialog();
+        }
 
     }
 }

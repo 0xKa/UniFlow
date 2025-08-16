@@ -49,7 +49,7 @@
             // 
             // metroLabel5
             // 
-            metroLabel5.Font = new Font("Verdana", 11F);
+            metroLabel5.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel5.IsDerivedStyle = true;
             metroLabel5.Location = new Point(3, 23);
             metroLabel5.Name = "metroLabel5";
@@ -64,7 +64,7 @@
             // 
             // metroLabel1
             // 
-            metroLabel1.Font = new Font("Verdana", 11F);
+            metroLabel1.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel1.IsDerivedStyle = true;
             metroLabel1.Location = new Point(3, 188);
             metroLabel1.Name = "metroLabel1";
@@ -79,7 +79,7 @@
             // 
             // metroLabel2
             // 
-            metroLabel2.Font = new Font("Verdana", 11F);
+            metroLabel2.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel2.IsDerivedStyle = true;
             metroLabel2.Location = new Point(232, 23);
             metroLabel2.Name = "metroLabel2";
@@ -94,7 +94,7 @@
             // 
             // metroLabel3
             // 
-            metroLabel3.Font = new Font("Verdana", 11F);
+            metroLabel3.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel3.IsDerivedStyle = true;
             metroLabel3.Location = new Point(3, 78);
             metroLabel3.Name = "metroLabel3";
@@ -109,7 +109,7 @@
             // 
             // metroLabel4
             // 
-            metroLabel4.Font = new Font("Verdana", 11F);
+            metroLabel4.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel4.IsDerivedStyle = true;
             metroLabel4.Location = new Point(3, 133);
             metroLabel4.Name = "metroLabel4";
@@ -124,7 +124,7 @@
             // 
             // metroLabel6
             // 
-            metroLabel6.Font = new Font("Verdana", 11F);
+            metroLabel6.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel6.IsDerivedStyle = true;
             metroLabel6.Location = new Point(267, 133);
             metroLabel6.Name = "metroLabel6";
@@ -139,7 +139,7 @@
             // 
             // metroLabel7
             // 
-            metroLabel7.Font = new Font("Verdana", 11F);
+            metroLabel7.Font = new Font("Verdana", 9.75F, FontStyle.Bold);
             metroLabel7.IsDerivedStyle = true;
             metroLabel7.Location = new Point(3, 243);
             metroLabel7.Name = "metroLabel7";
@@ -240,9 +240,9 @@
             lblAddress.Cursor = Cursors.IBeam;
             lblAddress.Font = new Font("Verdana", 11.25F);
             lblAddress.ForeColor = Color.WhiteSmoke;
-            lblAddress.Location = new Point(267, 161);
+            lblAddress.Location = new Point(280, 161);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(197, 105);
+            lblAddress.Size = new Size(184, 105);
             lblAddress.TabIndex = 26;
             lblAddress.Text = "[???] [???] [???] [???]\r\n[???] [???] [???] [???]\r\n";
             // 
@@ -262,6 +262,7 @@
             llEditPersonInfo.Text = "Edit Info";
             llEditPersonInfo.TextAlign = ContentAlignment.MiddleCenter;
             llEditPersonInfo.VisitedLinkColor = Color.FromArgb(45, 157, 205);
+            llEditPersonInfo.LinkClicked += llEditPersonInfo_LinkClicked;
             // 
             // PersonCardControl
             // 
