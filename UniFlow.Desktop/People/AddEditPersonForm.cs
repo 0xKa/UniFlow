@@ -41,11 +41,13 @@ namespace UniFlow.Desktop.People
             this.Load += async (s, e) =>
             {
                 if (_mode == Util.enMode.Update)
+                {
                     _person = await new PersonApi().GetByIdAsync(personID);
+                    _FillPersonInfo();
+                }
                 else
                     _person = new PersonDTO();
 
-                _FillPersonInfo();
             };
         }
 
@@ -400,9 +402,13 @@ namespace UniFlow.Desktop.People
 
             if (await _SavePersonAsync())
             {
-                _ChangeFormMode();
-                //this.DialogResult = DialogResult.OK;
-                //this.Close();
+                if (_mode == enMode.AddNew)
+                    _ChangeFormMode();
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
     }

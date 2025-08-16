@@ -179,6 +179,7 @@ namespace UniFlow.Desktop
             if (dgvPeople.CurrentRow?.Cells[0]?.Value is int personId)
             {
                 PersonInfoForm frm = new(personId);
+                frm.FormClosed += async (s,e) => await _RefreshDataAsync();
                 frm.ShowDialog();
             }
             else

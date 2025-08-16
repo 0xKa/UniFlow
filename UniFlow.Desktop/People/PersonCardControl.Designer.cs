@@ -36,14 +36,14 @@
             metroLabel6 = new ReaLTaiizor.Controls.MetroLabel();
             metroLabel7 = new ReaLTaiizor.Controls.MetroLabel();
             pbPersonImage = new PictureBox();
-            lblPersonID = new Label();
-            lblNationalID = new Label();
-            lblFullName = new Label();
-            lblDateOfBirth = new Label();
-            lblGender = new Label();
-            lblPhone = new Label();
-            lblAddress = new Label();
             llEditPersonInfo = new ReaLTaiizor.Controls.NightLinkLabel();
+            lblPersonID = new TextBox();
+            lblNationalID = new TextBox();
+            lblGender = new TextBox();
+            lblDateOfBirth = new TextBox();
+            lblPhone = new TextBox();
+            lblAddress = new TextBox();
+            lblFullName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pbPersonImage).BeginInit();
             SuspendLayout();
             // 
@@ -162,90 +162,6 @@
             pbPersonImage.TabIndex = 12;
             pbPersonImage.TabStop = false;
             // 
-            // lblPersonID
-            // 
-            lblPersonID.Cursor = Cursors.IBeam;
-            lblPersonID.Font = new Font("Verdana", 11.25F);
-            lblPersonID.ForeColor = Color.WhiteSmoke;
-            lblPersonID.Location = new Point(122, 23);
-            lblPersonID.Name = "lblPersonID";
-            lblPersonID.Size = new Size(113, 23);
-            lblPersonID.TabIndex = 20;
-            lblPersonID.Text = "[???]";
-            lblPersonID.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblNationalID
-            // 
-            lblNationalID.Cursor = Cursors.IBeam;
-            lblNationalID.Font = new Font("Verdana", 11.25F);
-            lblNationalID.ForeColor = Color.WhiteSmoke;
-            lblNationalID.Location = new Point(351, 23);
-            lblNationalID.Name = "lblNationalID";
-            lblNationalID.Size = new Size(113, 23);
-            lblNationalID.TabIndex = 21;
-            lblNationalID.Text = "[???]";
-            lblNationalID.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblFullName
-            // 
-            lblFullName.BorderStyle = BorderStyle.FixedSingle;
-            lblFullName.Cursor = Cursors.IBeam;
-            lblFullName.Font = new Font("Verdana", 11.25F);
-            lblFullName.ForeColor = Color.Firebrick;
-            lblFullName.Location = new Point(122, 78);
-            lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(342, 23);
-            lblFullName.TabIndex = 22;
-            lblFullName.Text = "[???] [???] [???] [???]";
-            lblFullName.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblDateOfBirth
-            // 
-            lblDateOfBirth.Cursor = Cursors.IBeam;
-            lblDateOfBirth.Font = new Font("Verdana", 11.25F);
-            lblDateOfBirth.ForeColor = Color.WhiteSmoke;
-            lblDateOfBirth.Location = new Point(122, 188);
-            lblDateOfBirth.Name = "lblDateOfBirth";
-            lblDateOfBirth.Size = new Size(113, 23);
-            lblDateOfBirth.TabIndex = 23;
-            lblDateOfBirth.Text = "[???]";
-            lblDateOfBirth.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblGender
-            // 
-            lblGender.Cursor = Cursors.IBeam;
-            lblGender.Font = new Font("Verdana", 11.25F);
-            lblGender.ForeColor = Color.WhiteSmoke;
-            lblGender.Location = new Point(122, 133);
-            lblGender.Name = "lblGender";
-            lblGender.Size = new Size(113, 23);
-            lblGender.TabIndex = 24;
-            lblGender.Text = "[???]";
-            lblGender.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblPhone
-            // 
-            lblPhone.Cursor = Cursors.IBeam;
-            lblPhone.Font = new Font("Verdana", 11.25F);
-            lblPhone.ForeColor = Color.WhiteSmoke;
-            lblPhone.Location = new Point(122, 243);
-            lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(113, 23);
-            lblPhone.TabIndex = 25;
-            lblPhone.Text = "[???]";
-            lblPhone.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lblAddress
-            // 
-            lblAddress.Cursor = Cursors.IBeam;
-            lblAddress.Font = new Font("Verdana", 11.25F);
-            lblAddress.ForeColor = Color.WhiteSmoke;
-            lblAddress.Location = new Point(280, 161);
-            lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(184, 105);
-            lblAddress.TabIndex = 26;
-            lblAddress.Text = "[???] [???] [???] [???]\r\n[???] [???] [???] [???]\r\n";
-            // 
             // llEditPersonInfo
             // 
             llEditPersonInfo.ActiveLinkColor = Color.FromArgb(85, 197, 245);
@@ -264,19 +180,126 @@
             llEditPersonInfo.VisitedLinkColor = Color.FromArgb(45, 157, 205);
             llEditPersonInfo.LinkClicked += llEditPersonInfo_LinkClicked;
             // 
+            // lblPersonID
+            // 
+            lblPersonID.BackColor = Color.FromArgb(25, 25, 25);
+            lblPersonID.BorderStyle = BorderStyle.None;
+            lblPersonID.Cursor = Cursors.IBeam;
+            lblPersonID.Font = new Font("Verdana", 9.75F);
+            lblPersonID.ForeColor = Color.White;
+            lblPersonID.Location = new Point(122, 26);
+            lblPersonID.Name = "lblPersonID";
+            lblPersonID.ReadOnly = true;
+            lblPersonID.Size = new Size(113, 16);
+            lblPersonID.TabIndex = 28;
+            lblPersonID.TabStop = false;
+            lblPersonID.Text = "[???]";
+            // 
+            // lblNationalID
+            // 
+            lblNationalID.BackColor = Color.FromArgb(25, 25, 25);
+            lblNationalID.BorderStyle = BorderStyle.None;
+            lblNationalID.Cursor = Cursors.IBeam;
+            lblNationalID.Font = new Font("Verdana", 9.75F);
+            lblNationalID.ForeColor = Color.White;
+            lblNationalID.Location = new Point(351, 26);
+            lblNationalID.Name = "lblNationalID";
+            lblNationalID.ReadOnly = true;
+            lblNationalID.Size = new Size(113, 16);
+            lblNationalID.TabIndex = 29;
+            lblNationalID.TabStop = false;
+            lblNationalID.Text = "[???]";
+            // 
+            // lblGender
+            // 
+            lblGender.BackColor = Color.FromArgb(25, 25, 25);
+            lblGender.BorderStyle = BorderStyle.None;
+            lblGender.Cursor = Cursors.IBeam;
+            lblGender.Font = new Font("Verdana", 9.75F);
+            lblGender.ForeColor = Color.White;
+            lblGender.Location = new Point(122, 136);
+            lblGender.Name = "lblGender";
+            lblGender.ReadOnly = true;
+            lblGender.Size = new Size(113, 16);
+            lblGender.TabIndex = 30;
+            lblGender.TabStop = false;
+            lblGender.Text = "[???]";
+            // 
+            // lblDateOfBirth
+            // 
+            lblDateOfBirth.BackColor = Color.FromArgb(25, 25, 25);
+            lblDateOfBirth.BorderStyle = BorderStyle.None;
+            lblDateOfBirth.Cursor = Cursors.IBeam;
+            lblDateOfBirth.Font = new Font("Verdana", 9.75F);
+            lblDateOfBirth.ForeColor = Color.White;
+            lblDateOfBirth.Location = new Point(122, 191);
+            lblDateOfBirth.Name = "lblDateOfBirth";
+            lblDateOfBirth.ReadOnly = true;
+            lblDateOfBirth.Size = new Size(113, 16);
+            lblDateOfBirth.TabIndex = 31;
+            lblDateOfBirth.TabStop = false;
+            lblDateOfBirth.Text = "[???]";
+            // 
+            // lblPhone
+            // 
+            lblPhone.BackColor = Color.FromArgb(25, 25, 25);
+            lblPhone.BorderStyle = BorderStyle.None;
+            lblPhone.Cursor = Cursors.IBeam;
+            lblPhone.Font = new Font("Verdana", 9.75F);
+            lblPhone.ForeColor = Color.White;
+            lblPhone.Location = new Point(122, 246);
+            lblPhone.Name = "lblPhone";
+            lblPhone.ReadOnly = true;
+            lblPhone.Size = new Size(144, 16);
+            lblPhone.TabIndex = 32;
+            lblPhone.TabStop = false;
+            lblPhone.Text = "[???]";
+            // 
+            // lblAddress
+            // 
+            lblAddress.BackColor = Color.FromArgb(25, 25, 25);
+            lblAddress.BorderStyle = BorderStyle.None;
+            lblAddress.Cursor = Cursors.IBeam;
+            lblAddress.Font = new Font("Verdana", 9.75F);
+            lblAddress.ForeColor = Color.White;
+            lblAddress.Location = new Point(286, 159);
+            lblAddress.Multiline = true;
+            lblAddress.Name = "lblAddress";
+            lblAddress.ReadOnly = true;
+            lblAddress.Size = new Size(178, 107);
+            lblAddress.TabIndex = 33;
+            lblAddress.TabStop = false;
+            lblAddress.Text = "[???] [???] [???]\r\n[???] [???] [???]\r\n[???] [???] [???]";
+            // 
+            // lblFullName
+            // 
+            lblFullName.BackColor = Color.FromArgb(25, 25, 25);
+            lblFullName.BorderStyle = BorderStyle.FixedSingle;
+            lblFullName.Cursor = Cursors.IBeam;
+            lblFullName.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFullName.ForeColor = Color.Firebrick;
+            lblFullName.Location = new Point(122, 78);
+            lblFullName.Multiline = true;
+            lblFullName.Name = "lblFullName";
+            lblFullName.ReadOnly = true;
+            lblFullName.Size = new Size(342, 23);
+            lblFullName.TabIndex = 34;
+            lblFullName.TabStop = false;
+            lblFullName.Text = "[???] [???] [???] [???]";
+            // 
             // PersonCardControl
             // 
             AutoScaleDimensions = new SizeF(8F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(25, 25, 25);
-            Controls.Add(llEditPersonInfo);
+            Controls.Add(lblFullName);
             Controls.Add(lblAddress);
             Controls.Add(lblPhone);
-            Controls.Add(lblGender);
             Controls.Add(lblDateOfBirth);
-            Controls.Add(lblFullName);
+            Controls.Add(lblGender);
             Controls.Add(lblNationalID);
             Controls.Add(lblPersonID);
+            Controls.Add(llEditPersonInfo);
             Controls.Add(pbPersonImage);
             Controls.Add(metroLabel7);
             Controls.Add(metroLabel6);
@@ -290,6 +313,7 @@
             Size = new Size(640, 290);
             ((System.ComponentModel.ISupportInitialize)pbPersonImage).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -302,13 +326,13 @@
         private ReaLTaiizor.Controls.MetroLabel metroLabel6;
         private ReaLTaiizor.Controls.MetroLabel metroLabel7;
         private PictureBox pbPersonImage;
-        private Label lblPersonID;
-        private Label lblNationalID;
-        private Label lblFullName;
-        private Label lblDateOfBirth;
-        private Label lblGender;
-        private Label lblPhone;
-        private Label lblAddress;
         private ReaLTaiizor.Controls.NightLinkLabel llEditPersonInfo;
+        private TextBox lblPersonID;
+        private TextBox lblNationalID;
+        private TextBox lblGender;
+        private TextBox lblDateOfBirth;
+        private TextBox lblPhone;
+        private TextBox lblAddress;
+        private TextBox lblFullName;
     }
 }
